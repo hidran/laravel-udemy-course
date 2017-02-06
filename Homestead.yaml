@@ -1,23 +1,32 @@
 ---
 ip: "192.168.10.10"
-memory: 2048
+memory: 1024
 cpus: 1
 provider: virtualbox
 
 folders:
-    - map: .
+    - map: ./PROJECTS
       to: /home/vagrant/Code
 
 sites:
-    - map: homestead.app
-      to: /home/vagrant/Code/Project/public
+   
+    - map: laravel.local
+      to: /home/vagrant/Code/laravel/public
+    - map: phpmyadmin.local
+      to: /home/vagrant/Code/phpmyadmin/
 
 databases:
     - homestead
+    - laraproject
+    - laravel 
 
 variables:
     - key: APP_ENV
       value: local
+    - key: http_proxy
+      value: http://161.27.14.87:8080
+    - key: https_proxy
+      value: http://161.27.14.87:8080
 
 # blackfire:
 #     - id: foo
