@@ -1,2 +1,7 @@
 /vendor
 /.vagrant
+PROJECTS/.idea/
+PROJECTS/corsolaravel/
+PROJECTS/phpmyadmin/
+node_modules/
+npm-debug.log
