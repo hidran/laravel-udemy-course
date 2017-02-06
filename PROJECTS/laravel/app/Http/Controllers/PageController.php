@@ -38,7 +38,11 @@ class PageController extends Controller
     {
         // $view = app('view');
         //return $view('about');
-        return view('blog');
+        return view('blog',
+            ['img_url' => 'http://lorempixel.com/400/200',
+                'img_title' =>'Immagine inclusa',
+                'slot' => ''
+        ]);
         // return   View::make('about');
     }
 
@@ -60,6 +64,6 @@ class PageController extends Controller
         
         $staff = $this->data;
         $title = 'OUR STAFF';
-        return view('staff', compact('title','staff'));
+        return view('staffb', compact('title','staff'));
     }
 }
