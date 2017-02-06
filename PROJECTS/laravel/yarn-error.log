@@ -1,0 +1,42 @@
+Arguments: 
+  /home/vagrant/.nvm/versions/node/v7.5.0/bin/node /usr/bin/yarn add webpack babel cross-env
+
+PATH: 
+  /home/vagrant/.nvm/versions/node/v7.5.0/bin:/home/vagrant/.composer/vendor/bin:/home/vagrant/bin:/home/vagrant/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  0.18.0
+
+Node version: 
+  7.5.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "dev": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "hot": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "production": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+      "axios": "^0.15.2",
+      "bootstrap-sass": "^3.3.7",
+      "jquery": "^3.1.0",
+      "laravel-mix": "^0.5.0",
+      "lodash": "^4.16.2",
+      "vue": "^2.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EPROTO: protocol error, symlink '../../../browserslist/cli.js' -> '/home/vagrant/Code/laravel/node_modules/autoprefixer/node_modules/.bin/browserslist'
