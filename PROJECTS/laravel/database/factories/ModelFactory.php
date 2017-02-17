@@ -12,6 +12,10 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+use Carbon\Carbon;
+use LaraCourse\Models\Album;
+use LaraCourse\User;
+
 $factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
     static $password;
 
