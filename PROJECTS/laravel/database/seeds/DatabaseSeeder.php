@@ -18,8 +18,11 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
      
         User::truncate();
-        
-         $this->call(SeedUserTable::class);
+        Album::truncate();
+        Photo::truncate(); 
+        $this->call(SeedUserTable::class);
+        $this->call(SeedAlbumTable::class);
+        $this->call(SeedPhotsTable::class);
       
     }
 }
