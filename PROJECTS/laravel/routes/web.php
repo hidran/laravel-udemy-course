@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Auth\User;
 use LaraCourse\Models\Album;
+use LaraCourse\Models\Photo;
 
 Route::get('/','HomeController@index');
 
@@ -15,8 +17,14 @@ Route::get('welcome/{name?}/{lastname?}/{age?}', 'WelcomeController@welcome')
         'age' => '[0-9]{1,3}'
     ])
     ;
-Route::get('/albums',function(){
-    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    // Album::truncate();
-   // Album::all();
+Route::get('/albums','AlbumsController@index');
+Route::get('/albums/{id}/delete','AlbumsController@delete');
+
+Route::get('photos' , function(){
+    return Photo::all();
+});
+
+
+Route::get('users' , function(){
+    return User::all();
 });

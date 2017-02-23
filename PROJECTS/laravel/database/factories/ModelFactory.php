@@ -15,21 +15,6 @@
 use Carbon\Carbon;
 use LaraCourse\Models\Album;
 use LaraCourse\User;
-$cats =
-    ['abstract',
-        'animals',
-        'business',
-        'cats',
-        'city',
-        'food',
-        'nightlife',
-        'fashion',
-        'people',
-        'nature',
-        'sports',
-        'technics',
-        'transport',
-    ];
 
 $factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -41,31 +26,40 @@ $factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
-$factory->define(LaraCourse\Models\Album::class, function (Faker\Generator $faker)  use ($cats) {
+$factory->define(LaraCourse\Models\Album::class, function (Faker\Generator $faker){
     
 
     return [
-        'album_name' => '',
+        'album_name' => $faker->name,
         'description' => $faker->text(128),
         'user_id' => User::inRandomOrder()->first()->id
        
     ];
 });
-$factory->define(LaraCourse\Models\Photo::class, function (Faker\Generator $faker)  use ($cats) {
-    $album_name = $faker->randomElement($cats);
-    $album_id = '';
-   $album =  Album::where('album_name' , $album_name)->first();
-   if($album){
-       $album_id = $album->id;
-   }
-   if(!$album_id){
-       $album_id =  Album::inRandomOrder()->first()->id;
-   }
+$factory->define(LaraCourse\Models\Photo::class, function (Faker\Generator $faker)  {
+    $cats =
+        ['abstract',
+            'animals',
+            'business',
+            'cats',
+            'city',
+            'food',
+            'nightlife',
+            'fashion',
+            'people',
+            'nature',
+            'sports',
+            'technics',
+            'transport',
+        ];
+
+    
+   
     return [
-        'album_id' =>$album_id,
+        'album_id' => Album::inRandomOrder()->first()->id,
         'name' => $faker->text(64),
         'description' => $faker->text(128),
-        'img_path' => $faker->imageUrl(640, 480, $album_name)
+        'img_path' => $faker->imageUrl(640, 480, $faker->randomElement($cats))
 
     ];
 });

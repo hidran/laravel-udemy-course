@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
      
         User::truncate();
         Album::truncate();
-        Photo::truncate(); 
+        Photo::truncate();
         $this->call(SeedUserTable::class);
         $this->call(SeedAlbumTable::class);
-        $this->call(SeedPhotsTable::class);
+        $this->call(SeedPhotosTable::class);
       
     }
 }
