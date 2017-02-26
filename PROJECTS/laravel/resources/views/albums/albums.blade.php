@@ -2,14 +2,23 @@
 @section('content')
  
     <h1>ALBUMS</h1>
+    @if(session()->has('message'))
+       @component('components.alert-info')
+        {{session()->get('message')}}
+        @endcomponent
+        @endif
     <form>
     <input type="hidden" name="_token" id="_token"    value="{{csrf_token()}}">
     
     <ul class="list-group">
     @foreach($albums as $album)
       <li class="list-group-item justify-content-between">
-         ({{$album->id}})  {{$album->album_name}} 
-          <a href="/albums/{{$album->id}}" class="btn btn-danger">DELETE</a> 
+          ({{$album->id}})  {{$album->album_name}}
+         <div>
+          <a href="/albums/{{$album->id}}/edit" class="btn btn-primary">UPDATE</a>
+          <a href="/albums/{{$album->id}}" class="btn btn-danger">DELETE</a>
+         </div>
+        
       </li>  
     @endforeach
     </ul>
@@ -19,7 +28,10 @@
     @parent
     <script>
        $('document').ready(function () {
-           $('ul').on('click', 'a',function (ele) {
+           
+          $('div.alert').fadeOut(5000); 
+          
+           $('ul').on('click', 'a.btn-danger',function (ele) {
                ele.preventDefault();
               
              var urlAlbum =   $(this).attr('href');
