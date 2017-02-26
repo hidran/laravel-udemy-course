@@ -18,8 +18,8 @@ Route::get('welcome/{name?}/{lastname?}/{age?}', 'WelcomeController@welcome')
     ])
     ;
 Route::get('/albums','AlbumsController@index');
-Route::get('/albums/{id}/delete','AlbumsController@delete');
-
+Route::delete('/albums/{id}','AlbumsController@delete');
+Route::get('/albums/{id}','AlbumsController@show');
 Route::get('photos' , function(){
     return Photo::all();
 });
