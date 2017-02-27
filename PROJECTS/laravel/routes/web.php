@@ -32,11 +32,15 @@ Route::delete('/albums/{id}','AlbumsController@delete');
 //Route::post('/albums/{id}','AlbumsController@store');
 Route::patch('/albums/{id}','AlbumsController@store');
 Route::post('/albums','AlbumsController@save')->name('album.save');
+
 Route::get('photos' , function(){
     return Photo::all();
 });
 
 
 Route::get('users' , function(){
-    return User::all();
+    $qb= DB::table('users','name,email')->leftJoin('albums','users.id','albums.user_id')->
+        whereNull('albums.id')->select('name','email');
+        
+   dd($qb->get());
 });
