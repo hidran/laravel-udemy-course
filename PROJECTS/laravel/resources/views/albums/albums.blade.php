@@ -35,7 +35,7 @@
                ele.preventDefault();
               
              var urlAlbum =   $(this).attr('href');
-             var li = ele.target.parentNode;
+             var li = ele.target.parentNode.parentNode;
              $.ajax(
                  urlAlbum,
                  {
