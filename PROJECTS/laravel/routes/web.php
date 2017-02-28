@@ -38,9 +38,16 @@ Route::get('photos' , function(){
 });
 
 
-Route::get('users' , function(){
-    $qb= DB::table('users','name,email')->leftJoin('albums','users.id','albums.user_id')->
-        whereNull('albums.id')->select('name','email');
-        
-   dd($qb->get());
+Route::get('usersnoalbums' , function(){
+    $usersnoalbum = DB::table('users  as u')
+        ->leftJoin('albums as a', 'u.id','a.user_id')
+        ->select('u.id','email','name','album_name')->
+        whereRaw('album_name is null')
+        ->get();
+    $usersnoalbum = DB::table('users  as u')
+       
+        ->select('u.id','email','name')->
+        whereRaw( 'NOT EXISTS (SELECT user_id from albums where user_id= u.id)')
+        ->get();
+    return $usersnoalbum;
 });
