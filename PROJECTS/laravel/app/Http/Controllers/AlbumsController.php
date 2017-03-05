@@ -11,8 +11,8 @@ class AlbumsController extends Controller
     public function index(Request $request)
     {
 
-
-        $queryBuilder = DB::table('albums')->orderBy('id', 'DESC');
+       //DB::table('albums')->  Album::
+        $queryBuilder = Album::orderBy('id', 'DESC');
         if ($request->has('id')) {
             $queryBuilder->where('id', '=', $request->input('id'));
         }
@@ -25,32 +25,30 @@ class AlbumsController extends Controller
 
     }
 
-    public function delete($id)
+    public function delete(Album $id)
     {
-        $res = DB::table('albums')->where('id', $id)->delete();
-
-        return $res;
+       
+        $res = $id->delete();
+        
+        return ''.$res;
     }
 
-    public function edit($id)
+    public function edit(Album $id)
     {
-        $sql = 'select id, album_name, description from albums where id =:id';
-        $album = DB::select($sql, ['id' => $id]);
-
-        return view('albums.editalbum')->with('album', $album[0]);
+        return view('albums.editalbum')->with('album', $id);
     }
 
-    public function store($id, Request $req)
+    public function store(Album $id, Request $req)
     {
 
-        $res = DB::table('albums')->where('id', $id)->update(
-            ['album_name' => request()->input('name'),
-                'description' => request()->input('description')
-            ]
-        );
+   $album =  $id;
+   $album->album_name = request()->input('name');
+   $album->description = request()->input('description');
+  $res =  $album->save();
+        
 
 
-        $messaggio = $res ? 'Album con id = ' . $id . ' Aggiornato' : 'Album ' . $id . ' Non aggiornato';
+        $messaggio = $res ? 'Album con id = ' . $id->id . ' Aggiornato' : 'Album ' . $id->id . ' Non aggiornato';
         session()->flash('message', $messaggio);
         return redirect()->route('albums');
     }
@@ -62,14 +60,12 @@ class AlbumsController extends Controller
 
     public function save()
     {
-        $res = DB::table('albums')->insert(
-          [  [
-                'album_name' => request()->input('name'),
-                'description' => request()->input('description'),
-                'user_id' => 1
-            ]
-              ]
-        );
+     
+       $album = new Album();
+       $album->album_name = request()->input('name');
+       $album->description =  request()->input('description');
+       $album->user_id = 1;
+        $res= $album->save();
         $name =  request()->input('name');
         $messaggio = $res ? 'Album   ' . $name . ' Created' : 'Album ' . $name. ' was not crerated';
         session()->flash('message', $messaggio);
