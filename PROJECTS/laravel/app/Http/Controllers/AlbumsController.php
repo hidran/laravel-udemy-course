@@ -12,14 +12,17 @@ class AlbumsController extends Controller
     {
 
        //DB::table('albums')->  Album::
-        $queryBuilder = Album::orderBy('id', 'DESC');
+        $queryBuilder = Album::orderBy('id', 'DESC')->withCount('photos');
+      
         if ($request->has('id')) {
             $queryBuilder->where('id', '=', $request->input('id'));
         }
         if ($request->has('album_name')) {
             $queryBuilder->where('album_name', 'like', $request->input('album_name') . '%');
         }
+       
         $albums = $queryBuilder->get();
+        return $albums;
         return view('albums.albums', ['albums' => $albums]);
 
 
