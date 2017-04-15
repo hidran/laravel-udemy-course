@@ -24,7 +24,7 @@ Route::get('/albums/{id}','AlbumsController@show')->where('id', '[0-9]+');
 
 Route::get('/albums/create','AlbumsController@create')->name('album.create');
 
-Route::get('/albums/{id}/edit','AlbumsController@edit');
+Route::get('/albums/{id}/edit','AlbumsController@edit')->where('id', '[0-9]+');;
 
 
 Route::delete('/albums/{id}','AlbumsController@delete');
@@ -51,3 +51,5 @@ Route::get('usersnoalbums' , function(){
         ->get();
     return $usersnoalbum;
 });
+
+

@@ -14,8 +14,12 @@
     @foreach($albums as $album)
       <li class="list-group-item justify-content-between">
           ({{$album->id}})  {{$album->album_name}}
-          ({{$album->photos()->count()}})
+          @if($album->album_thumb)
+              <img width="300" src="{{'/images/album_thumbs/'.$album->album_thumb}}" title="{{$album->album_name}}" alt="{{$album->album_name}}">
+
+          @endif
          <div>
+            
           <a href="/albums/{{$album->id}}/edit" class="btn btn-primary">UPDATE</a>
           <a href="/albums/{{$album->id}}" class="btn btn-danger">DELETE</a>
          </div>

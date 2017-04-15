@@ -15,6 +15,21 @@
 use Carbon\Carbon;
 use LaraCourse\Models\Album;
 use LaraCourse\User;
+$cats =
+    ['abstract',
+        'animals',
+        'business',
+        'cats',
+        'city',
+        'food',
+        'nightlife',
+        'fashion',
+        'people',
+        'nature',
+        'sports',
+        'technics',
+        'transport',
+    ];
 
 $factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -26,33 +41,19 @@ $factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
-$factory->define(LaraCourse\Models\Album::class, function (Faker\Generator $faker){
+$factory->define(LaraCourse\Models\Album::class, function (Faker\Generator $faker) use($cats){
     
 
     return [
         'album_name' => $faker->name,
         'description' => $faker->text(128),
-        'user_id' => User::inRandomOrder()->first()->id
+        'user_id' => User::inRandomOrder()->first()->id,
+        'album_thumb' => $faker->imageUrl(640, 480, $faker->randomElement($cats))
        
     ];
 });
-$factory->define(LaraCourse\Models\Photo::class, function (Faker\Generator $faker)  {
-    $cats =
-        ['abstract',
-            'animals',
-            'business',
-            'cats',
-            'city',
-            'food',
-            'nightlife',
-            'fashion',
-            'people',
-            'nature',
-            'sports',
-            'technics',
-            'transport',
-        ];
-
+$factory->define(LaraCourse\Models\Photo::class, function (Faker\Generator $faker) use($cats)  {
+  
     
    
     return [

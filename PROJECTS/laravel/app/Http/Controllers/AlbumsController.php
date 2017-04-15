@@ -11,18 +11,18 @@ class AlbumsController extends Controller
     public function index(Request $request)
     {
 
-       //DB::table('albums')->  Album::
-        $queryBuilder = Album::orderBy('id', 'DESC')->withCount('photos');
-      
+        //DB::table('albums')->  Album::
+        $queryBuilder = Album::orderBy('id', 'DESC');
+
         if ($request->has('id')) {
             $queryBuilder->where('id', '=', $request->input('id'));
         }
         if ($request->has('album_name')) {
             $queryBuilder->where('album_name', 'like', $request->input('album_name') . '%');
         }
-       
+
         $albums = $queryBuilder->get();
-        return $albums;
+      
         return view('albums.albums', ['albums' => $albums]);
 
 
@@ -30,28 +30,36 @@ class AlbumsController extends Controller
 
     public function delete(Album $id)
     {
-       
+
         $res = $id->delete();
-        
-        return ''.$res;
+
+        return '' . $res;
     }
 
-    public function edit(Album $id)
+    public function edit( $id)
     {
-        return view('albums.editalbum')->with('album', $id);
+        $album = Album::find($id);
+        return view('albums.editalbum')->with('album', $album);
     }
 
-    public function store(Album $id, Request $req)
+    public function store( $id, Request $req)
     {
 
-   $album =  $id;
-   $album->album_name = request()->input('name');
-   $album->description = request()->input('description');
-  $res =  $album->save();
-        
+        $album = Album::find($id);
+        $album->album_name = request()->input('name');
+        $album->description = request()->input('description');
+        $album->user_id = 1;
+        if($req->hasFile('album_thumb')){
+            $file = $req->file('album_thumb');
+            $album->album_name = str_replace('  ',' ', $album->album_name);
+            $albumName = preg_replace('@[^a-z0-9]i@','-',$album->album_name);
+            $album->album_thumb = $albumName.'.'.$file->guessExtension();
+            $file->storeAs('images/album_thumbs/',$album->album_thumb ,'public');
+        }
+        $res = $album->save();
 
 
-        $messaggio = $res ? 'Album con id = ' . $id->id . ' Aggiornato' : 'Album ' . $id->id . ' Non aggiornato';
+        $messaggio = $res ? 'Album con id = ' . $album->album_name . ' Aggiornato' : 'Album ' . $album->album_name . ' Non aggiornato';
         session()->flash('message', $messaggio);
         return redirect()->route('albums');
     }
@@ -63,14 +71,14 @@ class AlbumsController extends Controller
 
     public function save()
     {
-     
-       $album = new Album();
-       $album->album_name = request()->input('name');
-       $album->description =  request()->input('description');
-       $album->user_id = 1;
-        $res= $album->save();
-        $name =  request()->input('name');
-        $messaggio = $res ? 'Album   ' . $name . ' Created' : 'Album ' . $name. ' was not crerated';
+
+        $album = new Album();
+        $album->album_name = request()->input('name');
+        $album->description = request()->input('description');
+        $album->user_id = 1;
+        $res = $album->save();
+        $name = request()->input('name');
+        $messaggio = $res ? 'Album   ' . $name . ' Created' : 'Album ' . $name . ' was not crerated';
         session()->flash('message', $messaggio);
         return redirect()->route('albums');
     }
