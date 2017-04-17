@@ -19,7 +19,11 @@
 
           @endif
          <div>
-            
+             @if($album->photos_count)
+             <a href="/albums/{{$album->id}}/images" class="btn btn-primary">VIEW IMAGES({{
+             $album->photos_count
+             }})</a>
+             @endif
           <a href="/albums/{{$album->id}}/edit" class="btn btn-primary">UPDATE</a>
           <a href="/albums/{{$album->id}}" class="btn btn-danger">DELETE</a>
          </div>
