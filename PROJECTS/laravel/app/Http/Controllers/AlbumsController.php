@@ -2,15 +2,18 @@
 
 namespace LaraCourse\Http\Controllers;
 
+use function config;
 use Illuminate\Http\Request;
 use LaraCourse\Models\Album;
 use DB;
+use LaraCourse\Models\Photo;
+use Storage;
 
 class AlbumsController extends Controller
 {
     public function index(Request $request)
     {
-
+    
         //DB::table('albums')->  Album::
         $queryBuilder = Album::orderBy('id', 'DESC');
 
@@ -42,6 +45,11 @@ class AlbumsController extends Controller
         return view('albums.editalbum')->with('album', $album);
     }
 
+    /**
+     * @param $id
+     * @param Request $req
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store( $id, Request $req)
     {
 
@@ -50,10 +58,16 @@ class AlbumsController extends Controller
         $album->description = request()->input('description');
         $album->user_id = 1;
         if($req->hasFile('album_thumb')){
+            
             $file = $req->file('album_thumb');
-           
-          
-            $album->album_thumb = $file->storeAs(env('ALBUM_THUMB_DIR'), $id.'.'.$file->extension(),'public');
+            if($file->isValid()) {
+              
+                //$fileName = $file->store(env('ALBUM_THUMB_DIR'));
+                $fileName =$id . '.' . $file->extension();
+                $file->storeAs(env('ALBUM_THUMB_DIR'), $fileName);
+            
+                $album->album_thumb =  env('ALBUM_THUMB_DIR').$fileName;
+            }
         }
         $res = $album->save();
 
@@ -81,4 +95,5 @@ class AlbumsController extends Controller
         session()->flash('message', $messaggio);
         return redirect()->route('albums');
     }
+   
 }
