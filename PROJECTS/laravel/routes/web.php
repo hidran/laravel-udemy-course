@@ -33,7 +33,7 @@ Route::delete('/albums/{id}','AlbumsController@delete');
 Route::patch('/albums/{id}','AlbumsController@store');
 Route::post('/albums','AlbumsController@save')->name('album.save');
 
-    ->where('album' ,'[0-9]+');
+
 Route::get('photos' , function(){
     return Photo::all();
 });
