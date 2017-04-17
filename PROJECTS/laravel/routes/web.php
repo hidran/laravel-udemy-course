@@ -4,7 +4,7 @@ use Illuminate\Foundation\Auth\User;
 use LaraCourse\Models\Album;
 use LaraCourse\Models\Photo;
 
-Route::get('/','HomeController@index');
+Route::get('/','AlbumsController@index');
 
 Route::get('welcome/{name?}/{lastname?}/{age?}', 'WelcomeController@welcome')
     /*

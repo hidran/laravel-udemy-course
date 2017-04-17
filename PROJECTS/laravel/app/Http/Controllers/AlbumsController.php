@@ -51,10 +51,9 @@ class AlbumsController extends Controller
         $album->user_id = 1;
         if($req->hasFile('album_thumb')){
             $file = $req->file('album_thumb');
-            $album->album_name = str_replace('  ',' ', $album->album_name);
-            $albumName = preg_replace('@[^a-z0-9]i@','-',$album->album_name);
-            $album->album_thumb = $albumName.'.'.$file->guessExtension();
-            $file->storeAs('images/album_thumbs/',$album->album_thumb ,'public');
+           
+          
+            $album->album_thumb = $file->storeAs(env('ALBUM_THUMB_DIR'), $id.'.'.$file->extension(),'public');
         }
         $res = $album->save();
 
