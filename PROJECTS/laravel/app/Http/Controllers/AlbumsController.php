@@ -5,6 +5,7 @@ namespace LaraCourse\Http\Controllers;
 use function compact;
 use function config;
 use function dd;
+use function env;
 use function getenv;
 use Illuminate\Http\Request;
 use LaraCourse\Models\Album;
@@ -28,7 +29,7 @@ class AlbumsController extends Controller
             $queryBuilder->where('album_name', 'like', $request->input('album_name') . '%');
         }
 
-        $albums = $queryBuilder->get();
+        $albums = $queryBuilder->paginate(env('IMG_PER_PAGE'));
      
         return view('albums.albums', ['albums' => $albums]);
 
@@ -134,8 +135,8 @@ class AlbumsController extends Controller
     }
    public  function getImages( Album $album)
    {
-       
-       $images = Photo::where('album_id',$album->id )->get();
+      
+       $images = Photo::where('album_id',$album->id )->paginate(env('IMG_PER_PAGE'));
        //$images=  $album->photos;
      
        return view('images.albumimages',compact('album','images'));
