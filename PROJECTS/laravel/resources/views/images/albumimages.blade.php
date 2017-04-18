@@ -35,7 +35,7 @@
                 </td></tr>
         @endforelse
     <tr><td colspan="6">
-           {{$images->links()}}
+         
         </td></tr>
 </table>
     @endsection
