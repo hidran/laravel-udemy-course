@@ -35,7 +35,7 @@ Route::patch('/albums/{id}','AlbumsController@store');
 Route::post('/albums','AlbumsController@save')->name('album.save');
 
 Route::get('/albums/{album}/images', 'AlbumsController@getImages')
-    ->name('album.getimahes')
+    ->name('album.getimages')
     ->where('album', '[0-9]+');
 
 Route::get('photos' , function(){
@@ -58,3 +58,5 @@ Route::get('usersnoalbums' , function(){
 });
 
 
+// images
+Route::resource('photos', 'PhotosController');

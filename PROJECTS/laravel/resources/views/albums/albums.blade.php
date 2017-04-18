@@ -12,7 +12,7 @@
     
     <ul class="list-group">
     @foreach($albums as $album)
-      <li class="list-group-item justify-content-between">
+       <li class="list-group-item justify-content-between">
           ({{$album->id}})  {{$album->album_name}}
           @if($album->album_thumb)
               <img width="300" src="{{asset($album->path)}}" title="{{$album->album_name}}" alt="{{$album->album_name}}">

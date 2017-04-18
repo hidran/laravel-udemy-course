@@ -29,7 +29,7 @@ class AlbumsController extends Controller
         }
 
         $albums = $queryBuilder->get();
-   //   dd($albums);
+     
         return view('albums.albums', ['albums' => $albums]);
 
 
@@ -136,6 +136,8 @@ class AlbumsController extends Controller
    {
        
        $images = Photo::where('album_id',$album->id )->get();
+       //$images=  $album->photos;
+     
        return view('images.albumimages',compact('album','images'));
       
    }
