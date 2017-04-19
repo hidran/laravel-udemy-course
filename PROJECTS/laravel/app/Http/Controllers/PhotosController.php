@@ -6,7 +6,10 @@ use function compact;
 use function config;
 use function dd;
 use Illuminate\Http\Request;
+use LaraCourse\Models\Album;
 use LaraCourse\Models\Photo;
+use function preg_replace;
+use function redirect;
 use Storage;
 use const STREAM_OPTION_READ_BUFFER;
 use function view;
@@ -28,9 +31,17 @@ class PhotosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        
+             $id = $req->has('album_id')?$req->input('album_id') : null;
+            
+            $album = Album::firstOrNew(['id' => $id ]);
+       
+       
+        $photo = new Photo();
+        $albums = $this->getAlbums();
+        return view('images.editimage', compact('album','photo','albums'));
     }
 
     /**
@@ -41,7 +52,15 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photo = new Photo();
+        $photo->name = $request->input('name');
+        $photo->description = $request->input('description');
+        $photo->album_id = $request->input('album_id');
+       
+        
+         $this->processFile($photo);
+         $photo->save();
+         return redirect(route('album.getimages',$photo->album_id));
     }
 
     /**
@@ -63,7 +82,12 @@ class PhotosController extends Controller
      */
     public function edit(Photo $photo)
     {
-        return view('images.editimage', compact('photo'));
+        
+       
+        $albums = $this->getAlbums();
+        $album = $photo->album;
+        
+        return view('images.editimage', compact('album','albums','photo'));
     }
 
     /**
@@ -77,6 +101,7 @@ class PhotosController extends Controller
     {
       
       $this->processFile($photo);
+        $photo->album_id = $request->album_id;
       $photo->name = $request->input('name');
         $photo->description = $request->input('description');
        $res =  $photo->save();
@@ -112,7 +137,9 @@ class PhotosController extends Controller
             return false;
         }
         //$fileName = $file->store(env('ALBUM_THUMB_DIR'));
-        $fileName = $photo->id . '.' . $file->extension();
+        $imgName = preg_replace('@[a-z0-9]i@','_', $photo->name);
+        
+        $fileName = $imgName. '.' . $file->extension();
         $file->storeAs(env('IMG_DIR').'/'.$photo->album_id, $fileName);
         $photo->img_path = env('IMG_DIR') .$photo->album_id .'/'.$fileName;
 
@@ -128,5 +155,9 @@ class PhotosController extends Controller
          return   Storage::disk($disk)->delete($photo->img_path);
         }
         return false;
+    }
+    public function getAlbums()
+    {
+        return Album::orderBy('album_name')->get();
     }
 }

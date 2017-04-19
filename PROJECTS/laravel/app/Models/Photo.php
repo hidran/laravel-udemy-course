@@ -8,6 +8,12 @@ use function strtoupper;
 class Photo extends Model
 {
     protected $fillable =['name','img_path','description'];
+    
+    public  function  album()
+    {
+       // $this>$this->belongsTo(Album::class,'album_id','id');
+        return $this->belongsTo(Album::class);
+    }
     //img_path
     public function  getPathAttribute(){
         $url = $this->attributes['img_path'];

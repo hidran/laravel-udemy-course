@@ -19,6 +19,7 @@
 
           @endif
          <div>
+             <a href="{{route('photos.create')}}?album_id={{$album->id}}" class="btn btn-primary">NEW IMAGE</a>
              @if($album->photos_count)
              <a href="/albums/{{$album->id}}/images" class="btn btn-primary">VIEW IMAGES({{
              $album->photos_count
