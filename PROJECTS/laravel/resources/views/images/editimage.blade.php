@@ -7,6 +7,7 @@
             New Image
         @endif
     </h1>
+    @include('partials.inputerrors')
     @if($photo->id)
     <form action="{{route('photos.update', $photo->id)}}" method="POST" enctype="multipart/form-data">
       
@@ -17,11 +18,11 @@
                 @endif
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{$photo->name}}" placeholder="Image name">
+            <input type="text" required name="name" id="name" class="form-control" value="{{$photo->name}}" placeholder="Image name">
 
         </div>
                 <div class="form-group">
-                    <select name="album_id" id="album_id">
+                    <select required name="album_id" id="album_id">
                         <option value="">SELECT</option>
                         @foreach($albums as $item)
                             <option {{$item->id==$album->id?'selected' :''}} value="{{$item->id}}">{{$item->album_name}}</option>
@@ -35,7 +36,7 @@
         @include('images.partials.fileupload')
         <div class="form-group">
             <label for="">Description</label>
-            <textarea  name="description" id="description" class="form-control" placeholder="Album description">{{$photo->description}}</textarea>
+            <textarea required name="description" id="description" class="form-control" placeholder="Album description">{{$photo->description}}</textarea>
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -11,11 +11,24 @@ use LaraCourse\Models\Photo;
 use function preg_replace;
 use function redirect;
 use Storage;
-use const STREAM_OPTION_READ_BUFFER;
+
 use function view;
 
 class PhotosController extends Controller
 {
+    protected $rules = [
+        'album_id' => 'required|digit|exists:albums',
+        'name' => 'required|unique:photos:name',
+        'description' => 'required',
+        'img_path' => 'required|image'
+    ];  
+    
+    protected $errorMessages = [
+        'album_id.required' => 'Il campo Album è obbligatorio',
+        'description.required' => 'Il campo Descrizione è obbligatorio',
+        'name.required' => 'Il campo Nome è obbligatorio',
+        'img_path.required' => 'Il campo Immagine è obbligatorio'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +46,7 @@ class PhotosController extends Controller
      */
     public function create(Request $req)
     {
-        
+             
              $id = $req->has('album_id')?$req->input('album_id') : null;
             
             $album = Album::firstOrNew(['id' => $id ]);
@@ -52,6 +65,8 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
+       $this->validate($request, $this->rules, $this->errorMessages);
+       
         $photo = new Photo();
         $photo->name = $request->input('name');
         $photo->description = $request->input('description');
@@ -99,7 +114,9 @@ class PhotosController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-      
+        $this->validate($request, $this->rules);
+        
+        $this->validate($request, $this->rules);
       $this->processFile($photo);
         $photo->album_id = $request->album_id;
       $photo->name = $request->input('name');

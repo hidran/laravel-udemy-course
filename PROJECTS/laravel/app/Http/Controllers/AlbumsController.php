@@ -13,7 +13,8 @@ use DB;
 use LaraCourse\Models\Photo;
 use function returnArgument;
 use Storage;
-
+use LaraCourse\Http\Requests\AlbumRequest;
+use LaraCourse\Http\Requests\AlbumUpdateRequest;
 class AlbumsController extends Controller
 {
     public function index(Request $request)
@@ -62,9 +63,9 @@ class AlbumsController extends Controller
      * @param Request $req
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store( $id, Request $req)
+    public function store( $id, AlbumUpdateRequest $req)
     {
-
+      
         $album = Album::find($id);
         $album->album_name = request()->input('name');
         $album->description = request()->input('description');
@@ -84,13 +85,13 @@ class AlbumsController extends Controller
         return view('albums.createalbum', ['album' => $album]);
     }
 
-    public function save()
+    public function save( AlbumRequest $request)
     {
 
         $album = new Album();
-        $album->album_name = request()->input('name');
+        $album->album_name = $request->input('name');
         $album->album_thumb = '';
-        $album->description = request()->input('description');
+        $album->description = $request->input('description');
         $album->user_id = 1;
        
          
