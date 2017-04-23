@@ -17,8 +17,8 @@ use function view;
 class PhotosController extends Controller
 {
     protected $rules = [
-        'album_id' => 'required|digit|exists:albums',
-        'name' => 'required|unique:photos:name',
+        'album_id' => 'required|integer|exists:albums,id',
+        'name' => 'required',
         'description' => 'required',
         'img_path' => 'required|image'
     ];  
