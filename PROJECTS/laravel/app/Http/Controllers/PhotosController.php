@@ -65,6 +65,7 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
+       
        $this->validate($request, $this->rules, $this->errorMessages);
        
         $photo = new Photo();
@@ -114,6 +115,7 @@ class PhotosController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
+        unset($this->rules['img_path']);
         $this->validate($request, $this->rules);
         
         $this->validate($request, $this->rules);
@@ -154,7 +156,7 @@ class PhotosController extends Controller
             return false;
         }
         //$fileName = $file->store(env('ALBUM_THUMB_DIR'));
-        $imgName = preg_replace('@[a-z0-9]i@','_', $photo->name);
+        $imgName = preg_replace("@\W@",'_', $photo->name);
         
         $fileName = $imgName. '.' . $file->extension();
         $file->storeAs(env('IMG_DIR').'/'.$photo->album_id, $fileName);
