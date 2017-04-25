@@ -10,7 +10,7 @@ use LaraCourse\Models\Photo;
     //ALBUMS
 
 Route::group(
-    ['middleware'=>'auth','prefix' =>'dashboard']
+    ['middleware'=>'auth']
         ,
     function () {
         Route::get('/','AlbumsController@index');
