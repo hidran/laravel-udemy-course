@@ -25,8 +25,8 @@
              $album->photos_count
              }})</a>
              @endif
-          <a href="/albums/{{$album->id}}/edit" class="btn btn-primary">UPDATE</a>
-          <a href="/albums/{{$album->id}}" class="btn btn-danger">DELETE</a>
+          <a href="{{route('album.edit', $album->id)}}" class="btn btn-primary">UPDATE</a>
+          <a href="{{route('album.delete',$album->id)}}" class="btn btn-danger">DELETE</a>
          </div>
         
       </li>  

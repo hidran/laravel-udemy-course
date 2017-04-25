@@ -3,6 +3,8 @@ namespace LaraCourse\Models;
 use Illuminate\Database\Eloquent\Model;
 use LaraCourse\Models\Photo;
 use LaraCourse\User;
+use function substr;
+
 class Album extends Model 
 {
    
@@ -24,5 +26,8 @@ class Album extends Model
     }
    public function user(){
          return $this->belongsTo(User::class);
+   }
+   public function getShortDescrAttribute(){
+       return substr($this->description,0, 60).'...';
    }
 }

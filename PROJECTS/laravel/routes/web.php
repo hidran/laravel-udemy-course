@@ -10,19 +10,24 @@ use LaraCourse\Models\Photo;
     //ALBUMS
 
 Route::group(
-    ['middleware'=>'auth']
+    [
+        'middleware'=>'auth',
+        'prefix' => 'dashboard'
+    ]
         ,
     function () {
-        Route::get('/','AlbumsController@index');
-        Route::get('/home','AlbumsController@index')->name('albums');
+        Route::get('/','AlbumsController@index')->name('albums');
+     //   Route::get('/home','AlbumsController@index')->name('albums');
         Route::get('/albums/create', 'AlbumsController@create')->name('album.create');
         Route::get('/albums','AlbumsController@index')->name('albums');
         
         Route::get('/albums/{album}','AlbumsController@show')->where('id', '[0-9]+')
         ->middleware('can:view,album');
         
-       Route::get('/albums/{id}/edit','AlbumsController@edit')->where('id', '[0-9]+');;
+       Route::get('/albums/{id}/edit','AlbumsController@edit')->where('id', '[0-9]+')
+           ->name('album.edit');
        Route::delete('/albums/{album}','AlbumsController@delete')
+           ->name('album.delete')
             ->where('album', '[0-9]+');
 
 //Route::post('/albums/{id}','AlbumsController@store');

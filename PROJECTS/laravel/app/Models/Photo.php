@@ -8,7 +8,7 @@ use function strtoupper;
 class Photo extends Model
 {
     protected $fillable =['name','img_path','description'];
-    
+   
     public  function  album()
     {
        // $this>$this->belongsTo(Album::class,'album_id','id');
