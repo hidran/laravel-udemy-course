@@ -17,5 +17,7 @@
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{route('albums')}}"  class="btn btn-default">Back</a>
+        <a href="{{route('album.getimages', $album->id)}}"  class="btn btn-success">Album images</a>
     </form>
 @stop

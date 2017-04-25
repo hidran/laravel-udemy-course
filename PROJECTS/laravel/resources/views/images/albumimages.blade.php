@@ -17,16 +17,20 @@
     @forelse($images as $image)
      
         <tr>
-             <td>{{$image->created_at->diffForHumans()}}</td>
+             <td>{{$image->created_at->format('d/m/Y H:i')}}</td>
             <td>{{$image->name}}</td>
-            <td>{{$album->album_name}}</td>
+            <td><a href="{{route('album.edit', $image->album_id)}}">{{$album->album_name}}</a> </td>
             <td>
               <img  width="100" src="{{asset($image->img_path)}}">
             </td>
             <td class="row">
-                <a  href="{{route('photos.edit',$image->id)}}" class="btn btn-sm btn-primary">MODIFICA</a>&nbsp;
+                <a title="Edit pic" href="{{route('photos.edit',$image->id)}}" class="btn btn-sm btn-primary">
+                    <span class="fa fa-pencil"></span>
+                </a>&nbsp;
 
-                <a href="{{route('photos.destroy',$image->id)}}" class="btn  btn-sm btn-danger">DELETE</a>
+                <a title="Delete pic" href="{{route('photos.destroy',$image->id)}}" class="btn  btn-sm btn-danger">
+                    <span class="fa fa-minus"></span>
+                </a>
             </td>
         </tr>
         @empty

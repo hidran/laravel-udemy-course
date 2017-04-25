@@ -10,35 +10,56 @@
     <form>
     <input type="hidden" name="_token" id="_token"    value="{{csrf_token()}}">
     
-    <ul class="list-group">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Album name</th>
+            <th>Thumb</th>
+            <th>Creator</th>
+            <th>Created Date</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+  
     @foreach($albums as $album)
-       <li class="list-group-item justify-content-between">
-          ({{$album->id}})  {{$album->album_name}}
+       <tr>
+         <td> ({{$album->id}})  {{$album->album_name}} {{
+             $album->photos_count
+             }} pictures</td>
+           <td>
           @if($album->album_thumb)
-              <img width="300" src="{{asset($album->path)}}" title="{{$album->album_name}}" alt="{{$album->album_name}}">
+              <img width="120" src="{{asset($album->path)}}" title="{{$album->album_name}}" alt="{{$album->album_name}}">
 
           @endif
-         <div>
-             <a href="{{route('photos.create')}}?album_id={{$album->id}}" class="btn btn-primary">NEW IMAGE</a>
+           </td>
+           <td>{{$album->user->fullname}}</td>
+           <td>{{$album->created_at->format('d/m/Y H:i')}}</td>
+         <td>
+             <a title="Add picture" href="{{route('photos.create')}}?album_id={{$album->id}}" class="btn btn-success">
+                 <span class="fa fa-plus-square-o"></span>
+             </a>
              @if($album->photos_count)
-             <a href="{{route('album.getimages',$album->id)}}" class="btn btn-primary">VIEW IMAGES({{
-             $album->photos_count
-             }})</a>
+             <a title="View Images" href="{{route('album.getimages',$album->id)}}" class="btn btn-default">
+                 <span class="fa fa-search"></span>
+             </a>
              @endif
-          <a href="{{route('album.edit', $album->id)}}" class="btn btn-primary">UPDATE</a>
-          <a href="{{route('album.delete',$album->id)}}" class="btn btn-danger">DELETE</a>
-         </div>
+          <a title="update album" href="{{route('album.edit', $album->id)}}" class="btn btn-primary">
+              <span class="fa fa-pencil"></span></a>
+          <a title="Delete album" href="{{route('album.delete',$album->id)}}" class="btn btn-danger">
+              <span class="fa fa-minus"></span></a>
+         </td>
         
-      </li>  
+      </tr>  
     @endforeach
-        <li>
-        <div class="row">
+        <tr>
+        <td class="row" colspan="5">
             <div class="col-md-8 push-2">
                 {{$albums->links('vendor.pagination.bootstrap-4')}}
             </div>
-        </div>
-        </li>
-    </ul>
+        </td>
+        </tr>
+    
+    </table>
     </form>
 @endsection
 @section('footer')
