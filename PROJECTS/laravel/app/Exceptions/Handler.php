@@ -3,8 +3,10 @@
 namespace LaraCourse\Exceptions;
 
 use Exception;
+use function get_class;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use function var_dump;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +46,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+     
+       
         return parent::render($request, $exception);
     }
 

@@ -2,6 +2,7 @@
 
 namespace LaraCourse\Http\Controllers;
 
+use Auth;
 use function compact;
 use function config;
 use function dd;
@@ -16,6 +17,12 @@ use function view;
 
 class PhotosController extends Controller
 {
+     public function __construct()
+     {
+         $this->middleware('auth');
+         $this->authorizeResource(Photo::class);
+     }
+
     protected $rules = [
         'album_id' => 'required|integer|exists:albums,id',
         'name' => 'required',
@@ -177,6 +184,7 @@ class PhotosController extends Controller
     }
     public function getAlbums()
     {
-        return Album::orderBy('album_name')->get();
+        return Album::orderBy('album_name')->where('user_id', Auth::user()->id)
+            ->get();
     }
 }

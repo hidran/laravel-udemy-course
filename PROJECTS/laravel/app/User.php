@@ -4,6 +4,8 @@ namespace LaraCourse;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use LaraCourse\Models\Album;
+
 //gallery_users
 class User extends Authenticatable
 {
@@ -26,4 +28,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function albums(){
+         return $this->hasMany(Album::class);
+    }
 }

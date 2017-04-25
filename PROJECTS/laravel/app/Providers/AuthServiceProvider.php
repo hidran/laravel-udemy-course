@@ -4,6 +4,11 @@ namespace LaraCourse\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use LaraCourse\Models\Album;
+use LaraCourse\Models\Photo;
+use LaraCourse\Policies\AlbumPolicy;
+use LaraCourse\Policies\PhotoPolicy;
+use LaraCourse\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'LaraCourse\Model' => 'LaraCourse\Policies\ModelPolicy',
+        Album::class=> AlbumPolicy::class,
+        Photo::class => PhotoPolicy::class
     ];
 
     /**
@@ -25,6 +31,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+       Gate::define('manage-album', function(User $user, Album $album){
+           dd($user->id == $album->user_id);
+           return $user->id == $album->user_id;
+    });
+  
     }
 }

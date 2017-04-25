@@ -2,11 +2,14 @@
 
 namespace LaraCourse\Http\Controllers;
 
+use function abort;
+use Auth;
 use function compact;
 use function config;
 use function dd;
 use function env;
 use function getenv;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use LaraCourse\Models\Album;
 use DB;
@@ -17,11 +20,19 @@ use LaraCourse\Http\Requests\AlbumRequest;
 use LaraCourse\Http\Requests\AlbumUpdateRequest;
 class AlbumsController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->only(['create','edit']);
+       // $this->middleware('auth')->except(['index']);
+    }
+
     public function index(Request $request)
     {
     
         //DB::table('albums')->  Album::
         $queryBuilder = Album::orderBy('id', 'DESC')->withCount('photos');
+       
+        $queryBuilder->where('user_id', Auth::user()->id);
 
         if ($request->has('id')) {
             $queryBuilder->where('id', '=', $request->input('id'));
@@ -55,6 +66,17 @@ class AlbumsController extends Controller
     public function edit( $id)
     {
         $album = Album::find($id);
+        //Auth::user()->can('update', $album);
+        $this->authorize($album);
+      /*   dd('hi');
+        if(\Gate::denies('manage-album', $album)){
+            abort(401, 'Unauthorized');
+        }
+       
+        if($album->user->id !== Auth::user()->id){
+            abort(401, 'Unauthorized');
+        }
+      */
         return view('albums.editalbum')->with('album', $album);
     }
 
@@ -65,11 +87,13 @@ class AlbumsController extends Controller
      */
     public function store( $id, AlbumUpdateRequest $req)
     {
-      
+       
         $album = Album::find($id);
+        $this->authorize('update', $album);
+       
         $album->album_name = request()->input('name');
         $album->description = request()->input('description');
-        $album->user_id = 1;
+        $album->user_id = $req->user()->id;
         $this->processFile($id, $req, $album);
         $res = $album->save();
 
@@ -81,18 +105,19 @@ class AlbumsController extends Controller
 
     public function create()
     {
+       
         $album = new Album();
         return view('albums.createalbum', ['album' => $album]);
     }
 
     public function save( AlbumRequest $request)
     {
-
+       
         $album = new Album();
         $album->album_name = $request->input('name');
         $album->album_thumb = '';
         $album->description = $request->input('description');
-        $album->user_id = 1;
+        $album->user_id =  $request->user()->id;;
        
          
         $res = $album->save();
@@ -142,6 +167,10 @@ class AlbumsController extends Controller
      
        return view('images.albumimages',compact('album','images'));
       
+   }
+   public function  show( Album $album){
+       
+        dd($album);
    }
   
 }

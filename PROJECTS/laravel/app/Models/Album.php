@@ -2,6 +2,7 @@
 namespace LaraCourse\Models;
 use Illuminate\Database\Eloquent\Model;
 use LaraCourse\Models\Photo;
+use LaraCourse\User;
 class Album extends Model 
 {
    
@@ -21,5 +22,7 @@ class Album extends Model
     {
         return $this->hasMany(Photo::class, 'album_id', 'id');
     }
-   
+   public function user(){
+         return $this->belongsTo(User::class);
+   }
 }
