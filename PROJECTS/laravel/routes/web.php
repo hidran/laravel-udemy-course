@@ -78,3 +78,4 @@ Route::group(
 Auth::routes();
 
 Route::get('/', 'GalleryController@index');
+Route::get('home', 'GalleryController@index');
