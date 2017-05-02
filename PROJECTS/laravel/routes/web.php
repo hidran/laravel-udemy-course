@@ -76,5 +76,5 @@ Route::group(
 // images
 
 Auth::routes();
-
+Route::get('home', 'GalleryController@index');
 Route::get('/', 'GalleryController@index');
