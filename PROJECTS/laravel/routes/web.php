@@ -60,21 +60,5 @@ Route::group(
     }
 );
 
-// Gallery routes
-
-Route::group(
-    [
-      
-        'prefix' => 'gallery'
-    ]
-    ,
-    function () {
-        Route::get('albums', 'GalleryController@index')->name('gallery.albums');
-       Route::get('/', 'GalleryController@index')->name('gallery.albums');
-        Route::get('album/{album}/images', 'GalleryController@showAlbumImages')->name('gallery.album.images');
-    });
-// images
 
 Auth::routes();
-Route::get('home', 'GalleryController@index');
-Route::get('/', 'GalleryController@index');
