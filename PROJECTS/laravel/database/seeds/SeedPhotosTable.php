@@ -14,7 +14,7 @@ class SeedPhotosTable extends Seeder
     {
        $albums = Album::get();
        foreach ($albums as $album) {
-           factory(LaraCourse\Models\Photo::class, 200)->create(
+           factory(LaraCourse\Models\Photo::class, 30)->create(
                ['album_id' => $album->id]
            );
        }
