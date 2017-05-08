@@ -27,6 +27,12 @@ class Album extends Model
    public function user(){
          return $this->belongsTo(User::class);
    }
+   
+   public function  categories()
+   {
+       // album_album_category
+       return $this->belongsToMany(AlbumCategory::class,'album_category', 'album_id', 'category_id');
+   }
    public function getShortDescrAttribute(){
        return substr($this->description,0, 60).'...';
    }

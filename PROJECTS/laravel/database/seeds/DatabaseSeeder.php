@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaraCourse\AlbumCategory;
+use LaraCourse\Models\AlbumCategory;
 use LaraCourse\Models\Album;
+use LaraCourse\Models\AlbumsCategory;
 use LaraCourse\Models\Photo;
 use LaraCourse\User;
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
         Album::truncate();
         Photo::truncate();
         AlbumCategory::truncate();
+        AlbumsCategory::truncate();
         $this->call(SeedUserTable::class);
        
         $this->call(SeedAlbumCategoriesTable::class);

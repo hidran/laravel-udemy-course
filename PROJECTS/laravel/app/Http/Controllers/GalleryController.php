@@ -11,8 +11,12 @@ class GalleryController extends Controller
 {
     public function index()
     {
+        $albums =   Album::latest()->get();
+        foreach ($albums as $album){
+            return $album->categories;
+        }
         return view('gallery.albums')->with('albums',
-            Album::latest()->get()
+            $albums
         );
     }
 

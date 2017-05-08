@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaraCourse\AlbumCategory;
+use LaraCourse\Models\AlbumCategory;
+use LaraCourse\Models\AlbumsCategory;
 use LaraCourse\Models\Album;
 class SeedAlbumTable extends Seeder
 {
