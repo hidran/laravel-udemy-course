@@ -4,19 +4,23 @@
         @foreach($albums as $album)
             <div class="card">
               
-                   <a href="{{route('gallery.album.images', $album->id)}}"> <img  width="200"  class="card-img-top" title="{{$album->album_name}}" class="card-img-top" src="{{asset($album->album_thumb)}}"
+                   <a href="{{route('gallery.album.images', $album->id)}}"> <img  width="200"  class="card-img-top" title="{{$album->description}}" class="card-img-top" src="{{asset($album->album_thumb)}}"
                                                                                   alt="{{$album->album_name}}"></a>
                
                 <div class="card-block">
                     <h4 class="card-title">
                         <a href="{{route('gallery.album.images', $album->id)}}">       {{$album->album_name}}</a>
                     </h4>
-                    <p class="card-text">{{$album->description}}</p>
+                   
                     <p class="card-text">
-                        <small class="text-muted">{{$album->created_at->diffForHumans()}}</small>
+                        Cats:
+                        @foreach($album->categories as $cat)
+                          <a href="{{route('gallery.album.category',$cat->id)}}">{{$cat->category_name}}</a>
+                            @endforeach
                     </p>
                 </div>
             </div>
                 @endforeach
-            </div>
+           
+    </div>
 @endsection

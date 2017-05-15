@@ -2,6 +2,7 @@
 
 namespace LaraCourse\Exceptions;
 
+use function abort;
 use Exception;
 use function get_class;
 use Illuminate\Auth\AuthenticationException;
@@ -34,6 +35,11 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        
+        
+       /* if($exception instanceof  \Illuminate\Database\Eloquent\ModelNotFoundException){
+            abort(404, 'No data found');
+        }*/
         parent::report($exception);
     }
 
