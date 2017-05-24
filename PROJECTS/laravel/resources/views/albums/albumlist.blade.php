@@ -23,7 +23,7 @@
                         {{$albums->links('vendor.pagination.bootstrap-4')}}
                     </div>
                 </div>
-          
+         
        
     </form>
 @endsection

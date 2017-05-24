@@ -13,7 +13,9 @@ use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use LaraCourse\Models\Album;
 use DB;
+use LaraCourse\Models\AlbumCategory;
 use LaraCourse\Models\Photo;
+use LaraCourse\Policies\AlbumPolicy;
 use function returnArgument;
 use Storage;
 use LaraCourse\Http\Requests\AlbumRequest;
@@ -30,7 +32,7 @@ class AlbumsController extends Controller
     {
     
         //DB::table('albums')->  Album::
-        $queryBuilder = Album::orderBy('id', 'DESC')->withCount('photos');
+        $queryBuilder = Album::orderBy('id', 'DESC')->withCount('photos')->with('categories');
        
         $queryBuilder->where('user_id', Auth::user()->id);
 
@@ -66,18 +68,17 @@ class AlbumsController extends Controller
     public function edit( $id)
     {
         $album = Album::find($id);
-        //Auth::user()->can('update', $album);
-        $this->authorize($album);
-      /*   dd('hi');
-        if(\Gate::denies('manage-album', $album)){
-            abort(401, 'Unauthorized');
-        }
-       
-        if($album->user->id !== Auth::user()->id){
-            abort(401, 'Unauthorized');
-        }
-      */
-        return view('albums.editalbum')->with('album', $album);
+         $this->authorize($album);
+         $categories = AlbumCategory::get();
+         $selectedCategories = $album->categories->pluck('id')->toArray();
+      
+        return view('albums.editalbum')->with(
+           [
+               'album' => $album,
+               'categories' => $categories,
+               'selectedCategories' => $selectedCategories
+           ]
+        );
     }
 
     /**
@@ -96,7 +97,7 @@ class AlbumsController extends Controller
         $album->user_id = $req->user()->id;
         $this->processFile($id, $req, $album);
         $res = $album->save();
-
+        $album->categories()->sync($req->categories);
 
         $messaggio = $res ? 'Album con id = ' . $album->album_name . ' Aggiornato' : 'Album ' . $album->album_name . ' Non aggiornato';
         session()->flash('message', $messaggio);
@@ -107,7 +108,13 @@ class AlbumsController extends Controller
     {
        
         $album = new Album();
-        return view('albums.createalbum', ['album' => $album]);
+        $categories = AlbumCategory::get();
+        return view('albums.createalbum', [
+            'album' => $album,
+                'categories' => $categories,
+                'selectedCategories' => []
+            ]
+        );
     }
 
     public function save( AlbumRequest $request)
@@ -121,7 +128,11 @@ class AlbumsController extends Controller
        
          
         $res = $album->save();
+       
         if($res){
+            if($request->has('categories')){
+                $album->categories()->attach($request->categories);
+            }
              if($this->processFile($album->id, request(), $album)){
                  $album->save(); 
              }

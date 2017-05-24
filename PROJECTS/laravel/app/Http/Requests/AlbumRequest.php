@@ -26,7 +26,7 @@ class AlbumRequest extends FormRequest
         return [
 
             'name' => 'required|unique:albums,album_name',
-            'description' => 'required',
+           // 'description' => 'required',
             'album_thumb' => 'required|image',
             // 'user_id' => 'required'
         ];

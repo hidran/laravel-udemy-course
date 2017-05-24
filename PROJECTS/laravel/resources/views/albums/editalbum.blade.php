@@ -2,7 +2,7 @@
 @section('content')
     <h1>Edit Album</h1>
     @include('partials.inputerrors')
-    <form action="/albums/{{$album->id}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('album.patch', $album->id)}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group">
@@ -11,6 +11,7 @@
 
         </div>
       @include('albums.partials.fileupload')
+        @include('albums.partials.category_combo')
         <div class="form-group">
             <label for="">Description</label>
             <textarea required name="description" id="description" class="form-control" placeholder="Album description">{{old('description',$album->description)}}</textarea>

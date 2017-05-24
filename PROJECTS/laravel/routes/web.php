@@ -31,7 +31,7 @@ Route::group(
             ->where('album', '[0-9]+');
 
 //Route::post('/albums/{id}','AlbumsController@store');
-        Route::patch('/albums/{id}','AlbumsController@store');
+        Route::patch('/albums/{id}','AlbumsController@store')->name('album.patch');
         Route::post('/albums','AlbumsController@save')->name('album.save');
 
         Route::get('/albums/{album}/images', 'AlbumsController@getImages')

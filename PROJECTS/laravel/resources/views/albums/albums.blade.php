@@ -17,6 +17,7 @@
             <th>Thumb</th>
             <th>Creator</th>
             <th>Created Date</th>
+            <th>Categories</th>
             <th>&nbsp;</th>
         </tr>
         </thead>
@@ -33,6 +34,17 @@
           @endif
            </td>
            <td>{{$album->user->fullname}}</td>
+           <td>
+               @if($album->categories)
+               <ul>
+               @foreach($album->categories as $category)
+                    <li>{{$category->category_name}} ({{$category->id}} )</li>
+                   @endforeach
+               </ul>
+               @else
+                   No categories bound
+               @endif
+           </td>
            <td>{{$album->created_at->format('d/m/Y H:i')}}</td>
          <td>
              <a title="Add picture" href="{{route('photos.create')}}?album_id={{$album->id}}" class="btn btn-success">
@@ -66,10 +78,11 @@
     @parent
     <script>
        $('document').ready(function () {
-           
-          $('div.alert').fadeOut(5000); 
-          
-           $('ul').on('click', 'a.btn-danger',function (ele) {
+        
+          $('div.alert').fadeOut(5000);
+       
+           $('table').on('click', 'a.btn-danger',function (ele) {
+             alert('kk')
                ele.preventDefault();
               
              var urlAlbum =   $(this).attr('href');

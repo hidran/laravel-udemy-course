@@ -31,7 +31,8 @@ class Album extends Model
    public function  categories()
    {
        // album_album_category
-       return $this->belongsToMany(AlbumCategory::class,'album_category', 'album_id', 'category_id');
+       return $this->belongsToMany(AlbumCategory::class,'album_category', 'album_id', 'category_id')->
+           withTimestamps();
    }
    public function getShortDescrAttribute(){
        return substr($this->description,0, 60).'...';
