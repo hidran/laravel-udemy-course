@@ -1,6 +1,7 @@
 @extends('templates.default')
 
 @section('content')
+    @include('partials.inputerrors')
 <div class="row">
     <div class="col-8">
     <table class="table table-striped">
@@ -42,7 +43,7 @@
             {{csrf_field()}}
             <div class="form-group">
                 <label for="category_name">Category name</label>
-                <input name="category_name" id="category_name" class="form-control">
+                <input name="category_name" id="category_name" class="form-control" required>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">SAVE</button>

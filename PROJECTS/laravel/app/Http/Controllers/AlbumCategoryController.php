@@ -4,6 +4,7 @@ namespace LaraCourse\Http\Controllers;
 
 use function compact;
 use Illuminate\Http\Request;
+use LaraCourse\Http\Requests\AlbumCategoryRequest;
 use LaraCourse\Models\AlbumCategory;
 use function redirect;
 use Symfony\Component\Yaml\Tests\A;
@@ -39,7 +40,7 @@ class AlbumCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlbumCategoryRequest $request)
     {
         $category = new AlbumCategory();
         $category->category_name = $request->category_name;

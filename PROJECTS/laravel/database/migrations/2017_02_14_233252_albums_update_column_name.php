@@ -26,8 +26,6 @@ class AlbumsUpdateColumnName extends Migration
      */
     public function down()
     {
-        Schema::table('albums', function (Blueprint $table) {
-            $table->string('album_name', 128)->change();
-        });
+        Schema::dropIfExists('albums');
     }
 }

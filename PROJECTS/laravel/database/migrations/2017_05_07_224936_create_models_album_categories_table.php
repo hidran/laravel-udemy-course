@@ -35,6 +35,6 @@ class CreateModelsAlbumCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models_album_categories');
+        Schema::dropIfExists('album_categories');
     }
 }
