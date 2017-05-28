@@ -5,6 +5,7 @@ namespace LaraCourse;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use LaraCourse\Models\Album;
+use LaraCourse\Models\AlbumCategory;
 
 //gallery_users
 class User extends Authenticatable
@@ -30,6 +31,10 @@ class User extends Authenticatable
     ];
     public function albums(){
          return $this->hasMany(Album::class);
+    }
+    public function albumCategories()
+    {
+        return $this->hasMany(AlbumCategory::class);
     }
      public function  getFullNameAttribute(){
         return $this->name;
