@@ -26,6 +26,6 @@ class AlbumsUpdateColumnName extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        
     }
 }
