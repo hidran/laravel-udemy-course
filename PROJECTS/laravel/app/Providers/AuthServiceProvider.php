@@ -5,7 +5,9 @@ namespace LaraCourse\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use LaraCourse\Models\Album;
+use LaraCourse\Models\AlbumCategory;
 use LaraCourse\Models\Photo;
+use LaraCourse\Policies\AlbumCategoryPolicy;
 use LaraCourse\Policies\AlbumPolicy;
 use LaraCourse\Policies\PhotoPolicy;
 use LaraCourse\User;
@@ -19,7 +21,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Album::class=> AlbumPolicy::class,
-        Photo::class => PhotoPolicy::class
+        Photo::class => PhotoPolicy::class,
+        AlbumCategory::class => AlbumCategoryPolicy::class
+       
     ];
 
     /**

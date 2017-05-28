@@ -1,33 +1,27 @@
 @extends('templates.default')
 
 @section('content')
-    <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Large modal</button>
-   
+<div class="row">
+    <div class="col-8">
     <table class="table table-striped">
         <tr>
-            <th><input type="checkbox" id="selall"></th>
+     
             <th>ID</th>
             <th>Category name</th>
             <th>Created date</th>
             <th>Update date</th>
              <td> Number of albums</td>
-            <th>&nbsp;</th>
+      
         </tr>
         @forelse($categories as $category)
             <tr>
-                <td><input type="checkbox" name="cats[{{$category->id}}]" value="{{$category->id}}"></td>
+              
                 <td>{{$category->id}}</td>
                 <td>{{$category->category_name}}</td>
                 <td>{{$category->created_at}}</td>
                 <td>{{$category->updated_at}}</td>
                 <td>{{$category->albums_count}}</td>
-                <td>
-                    <form method="POST" action="{{route('categories.destroy',$category->id)}}">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                    <button role="button" href="" class="btn btn-danger btn-sm">DELETE</button>
-                    </form>
-                </td>
+            
             </tr>
             @empty
             <tfoot>
@@ -41,35 +35,19 @@
     <div class="row">
     <div class="col-md-8 push-2"> {{$categories->links('vendor.pagination.bootstrap-4')}}</div>
     </div>
-@component('partials.modal')
-    @slot('title')
-        INFO
-        @endslot
-    <div id="content">Content</div>
-    @endcomponent
+    </div>
+    <div class="col-4">
+       <h2>Add  new Category</h2>
+        <form action="{{route('categories.store')}}" method="POST">
+            {{csrf_field()}}
+            <div class="form-group">
+                <label for="category_name">Category name</label>
+                <input name="category_name" id="category_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
-@section('footer')
-    @parent
-    <script>
-      $('document').ready(function () {
-        $('#btn-primary').click(function (ele) {
-          alert(ele.target.className)
-        });
-        $('div.alert').fadeOut(5000);
-
-        $('table').on('click', '#selall',function (ele) {
-          $('#myModal').modal('show');
-         
-          console.dir(ele)
-          console.log(ele)
-           if($(ele.target).prop('checked')){
-             $('td input[type=checkbox]').prop('checked', true);
-           } else {
-             $('td input[type=checkbox]').prop('checked', false);
-           }
-
-  
-        });
-      });
-    </script>
-    @endsection
