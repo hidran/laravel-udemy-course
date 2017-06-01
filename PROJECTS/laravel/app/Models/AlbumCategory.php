@@ -2,10 +2,10 @@
 
 namespace LaraCourse\Models;
 
-use Doctrine\DBAL\Query\QueryBuilder;
+
 use Illuminate\Database\Eloquent\Model;
 use LaraCourse\User;
-
+use Illuminate\Database\Eloquent\Builder;
 class AlbumCategory extends Model
 {
     protected  $table ='album_categories';
@@ -16,14 +16,10 @@ class AlbumCategory extends Model
    public function user(){
         return $this->belongsTo(User::class);
    }
-    /**
-     * Scope a query to only include popular users.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-  public function scopeUserCategories( $builder,  $user_id)
-  {
-       return $builder->where('user_id', $user_id);
-  }
+    //getCateggoriesByUserId
+    public  function scopeGetCategoriesByUserId(Builder $queryBuilder, User $user)
+    {
+      $queryBuilder->where('user_id', $user->id)->withCount('albums')->latest();
+      return $queryBuilder;
+    }
 }

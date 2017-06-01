@@ -21,11 +21,12 @@ class AlbumCategoryController extends Controller
     public function index()
     {
         //$categories =  AlbumCategory::where('user_id',Auth::id())->withCount('albums')->latest()->paginate(5);
-         $cats= AlbumCategory::UserCategories(Auth::id())->get();
-       
-        $categories = Auth::user()->albumCategories()->withCount('albums')->latest()->paginate(5);
+        
+      //  $categories = Auth::user()->albumCategories()->withCount('albums')->latest()->paginate(5);
       
-        return view('categories.index', compact('categories'));
+        $categories = AlbumCategory::getCategoriesByUserId(auth()->user())->paginate(5);
+        
+         return view('categories.index', compact('categories'));
     }
 
     /**
