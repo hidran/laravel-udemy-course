@@ -13,6 +13,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
+     
         $albums =   Album::latest()->with('categories')->get();
        
         return view('gallery.albums')->with('albums',

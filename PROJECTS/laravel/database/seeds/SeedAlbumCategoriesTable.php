@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use LaraCourse\Models\AlbumCategory;
+use LaraCourse\User;
 
 class SeedAlbumCategoriesTable extends Seeder
 {
@@ -29,7 +30,11 @@ class SeedAlbumCategoriesTable extends Seeder
             ];
         foreach ($cats as $cat){
             AlbumCategory::create(
-                ['category_name'=> $cat]
+                [
+                     'category_name'=> $cat,
+                    'user_id' => User::inRandomOrder()->first()->id
+                    
+                    ]
                 
             );
                 
