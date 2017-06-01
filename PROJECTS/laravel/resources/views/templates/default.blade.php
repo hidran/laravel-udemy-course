@@ -10,10 +10,10 @@
     <title>@yield('title','Home')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{public_path()}}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{public_path()}}/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{public_path()}}/css/lightbox.css">
-   <link href="{{public_path()}}/css/app.css" rel="stylesheet">
+    <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('/')}}/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('/')}}/css/lightbox.css">
+   <link href="{{url('/')}}/css/app.css" rel="stylesheet">
     <!-- Custom styles for this template -->
    
 </head>
