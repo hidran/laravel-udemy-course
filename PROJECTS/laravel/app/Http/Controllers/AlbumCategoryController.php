@@ -4,12 +4,14 @@ namespace LaraCourse\Http\Controllers;
 
 use Auth;
 use function compact;
+use function foo\func;
 use Illuminate\Http\Request;
 use LaraCourse\Http\Requests\AlbumCategoryRequest;
 use LaraCourse\Models\AlbumCategory;
 use function redirect;
 use stdClass;
 use Symfony\Component\Yaml\Tests\A;
+use function var_dump;
 use function view;
 
 class AlbumCategoryController extends Controller
@@ -21,6 +23,7 @@ class AlbumCategoryController extends Controller
      */
     public function index()
     {
+      
         //$categories =  AlbumCategory::where('user_id',Auth::id())->withCount('albums')->latest()->paginate(5);
         
       //  $categories = Auth::user()->albumCategories()->withCount('albums')->latest()->paginate(5);
@@ -65,6 +68,16 @@ class AlbumCategoryController extends Controller
      */
     public function show(AlbumCategory $category)
     {
+        \DB::enableQueryLog();
+        $cat =AlbumCategory::where('id',1)->has('user', function($q) use($category) {
+            $q->where('user_id',$category->user_id);
+        })->get();
+      
+      //  $cat=  AlbumCategory::where('id',1)->has('user')->get();
+        
+        var_dump( $cat);
+        dd(\DB::getQueryLog());
+       // dd( $category->has('user')->count());//::has('user')->get());
         return $category;
     }
 
