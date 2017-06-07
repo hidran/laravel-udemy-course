@@ -3,26 +3,36 @@
 @section('content')
     @include('partials.inputerrors')
 <div class="row">
-    <div class="col-8">
+    <div class="col-7">
     <table class="table table-striped">
         <tr>
      
             <th>ID</th>
             <th>Category name</th>
             <th>Created date</th>
-            <th>Update date</th>
-             <td> Number of albums</td>
-      
+           
+             <th>Tot albums</th>
+              <th>&nbsp;</th>
         </tr>
-        @forelse($categories as $category)
+        @forelse($categories as $categoryI)
             <tr>
               
-                <td>{{$category->id}}</td>
-                <td>{{$category->category_name}}</td>
-                <td>{{$category->created_at}}</td>
-                <td>{{$category->updated_at}}</td>
-                <td>{{$category->albums_count}}</td>
-            
+                <td>{{$categoryI->id}}</td>
+                <td>{{$categoryI->category_name}}</td>
+                <td>{{$categoryI->created_at}}</td>
+               
+                <td>{{$categoryI->albums_count}}</td>
+                <td>
+                    <form method="post"
+                          action="{{route('categories.destroy', $categoryI->id)}}"
+                          class="form-inline">
+                        {{method_field('DELETE')}}
+                        {{csrf_field()}}
+                        <button class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
+                        <a TITLE="UPDATE" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
+                    </form>
+                   
+                </td>
             </tr>
             @empty
             <tfoot>
@@ -37,18 +47,9 @@
     <div class="col-md-8 push-2"> {{$categories->links('vendor.pagination.bootstrap-4')}}</div>
     </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
        <h2>Add  new Category</h2>
-        <form action="{{route('categories.store')}}" method="POST">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="category_name">Category name</label>
-                <input name="category_name" id="category_name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary">SAVE</button>
-            </div>
-        </form>
+       @include('categories.categoryform')
     </div>
 </div>
 @endsection

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use LaraCourse\Http\Requests\AlbumCategoryRequest;
 use LaraCourse\Models\AlbumCategory;
 use function redirect;
+use stdClass;
 use Symfony\Component\Yaml\Tests\A;
 use function view;
 
@@ -25,8 +26,8 @@ class AlbumCategoryController extends Controller
       //  $categories = Auth::user()->albumCategories()->withCount('albums')->latest()->paginate(5);
       
         $categories = AlbumCategory::getCategoriesByUserId(auth()->user())->paginate(5);
-        
-         return view('categories.index', compact('categories'));
+        $category = new AlbumCategory();
+         return view('categories.index', compact('categories','category'));
     }
 
     /**
@@ -36,7 +37,9 @@ class AlbumCategoryController extends Controller
      */
     public function create()
     {
-        //
+         $category = new AlbumCategory();
+       
+        return view('categories.managecategory',compact('category'));
     }
 
     /**
@@ -71,9 +74,9 @@ class AlbumCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(AlbumCategory $category)
+    public function edit(  AlbumCategory $category)
     {
-        return $category;
+       return view('categories.managecategory',compact('category'));
     }
 
     /**
@@ -83,9 +86,11 @@ class AlbumCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AlbumCategory $category)
     {
-        //
+        $category->category_name = $request->category_name;
+        $category->save();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -94,8 +99,9 @@ class AlbumCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( AlbumCategory $category)
     {
-        //
+       $res=  $category->delete();
+      return  redirect()->route('categories.index');
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 class AlbumCategory extends Model
 {
     protected  $table ='album_categories';
+    protected $fillable = ['category_name'];
     public function albums(){
         return $this->belongsToMany(Album::class,'album_category',  'category_id','album_id')->
             withTimestamps();     

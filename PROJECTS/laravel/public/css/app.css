@@ -4,3 +4,6 @@ body{
 ul.pagination{
     margin: 0 auto;
 }
+button{
+    cursor: pointer;
+}
