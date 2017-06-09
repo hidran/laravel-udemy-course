@@ -4,7 +4,7 @@
         @foreach($albums as $album)
             <div class="card">
               
-                   <a href="{{route('gallery.album.images', $album->id)}}"> <img  width="200"  class="card-img-top" title="{{$album->description}}" class="card-img-top" src="{{asset($album->album_thumb)}}"
+                   <a href="{{route('gallery.album.images', $album->id)}}"> <img  width="200"  class="card-img-top" title="{{$album->description}}"  src="{{asset($album->path)}}"
                                                                                   alt="{{$album->album_name}}"></a>
                
                 <div class="card-block">
