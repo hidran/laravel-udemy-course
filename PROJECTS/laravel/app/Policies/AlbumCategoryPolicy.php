@@ -2,6 +2,7 @@
 
 namespace LaraCourse\Policies;
 
+use function dd;
 use LaraCourse\Models\AlbumCategory;
 use LaraCourse\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -19,9 +20,26 @@ class AlbumCategoryPolicy
     {
         //
     }
-    public function save(User $user, AlbumCategory $category)
+    public function create(User $user)
     {
-
-        return $user->id == $album->user_id;
+        return 1;
+      
     }
+    public function delete(User $user, AlbumCategory $category)
+    {
+        return 1;
+        return $user->id == $category->user_id;
+    }
+    public function view(User $user, AlbumCategory $category)
+    {
+        return 1;
+        return $user->id == $category->user_id;
+    }
+    public function update(User $user, AlbumCategory $category)
+{
+    return 1;
+    return $user->id == $category->user_id;
+}
+    
+   
 }

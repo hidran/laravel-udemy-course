@@ -14,6 +14,11 @@ use function view;
 
 class AlbumCategoryController extends Controller
 {
+    public function __construct()
+    {
+       $this->authorizeResource(AlbumCategory::class,'category');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -76,6 +81,7 @@ class AlbumCategoryController extends Controller
      */
     public function edit(  AlbumCategory $category)
     {
+       // $this->authorize('update',$category);
        return view('categories.managecategory',compact('category'));
     }
 
