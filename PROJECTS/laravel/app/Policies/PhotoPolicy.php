@@ -43,10 +43,9 @@ class PhotoPolicy
      */
     public function update(User $user, Photo $photo)
     {
-        
-        return $user->id === $photo->album->user_id;
+         return $user->id === $photo->album->user_id;
     }
-
+  
     /**
      * Determine whether the user can delete the photo.
      *

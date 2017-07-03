@@ -23,9 +23,9 @@
                
                 <td>{{$categoryI->albums_count}}</td>
                 <td>
-                    <form method="post"
+                    <form  method="post" id="form-{{$categoryI->id}}"
                           action="{{route('categories.destroy', $categoryI->id)}}"
-                          class="form-inline">
+                          class="form-inline form-delete">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <button class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
@@ -53,3 +53,43 @@
     </div>
 </div>
 @endsection
+@section('footer')
+    @parent
+    <script>
+      $('document').ready(function () {
+alert('oj')
+        $('div.alert').fadeOut(5000);
+
+        $('form.form-delete button').on('click',function (ele) {
+          ele.preventDefault();
+          var btn = ele.target;
+          var f = btn.parentNode;
+          
+          alert(f.action)
+         
+
+          var urlAlbum = f.action;
+          var li = f.parentNode.parentNode;
+          $.ajax(
+            urlAlbum,
+            {
+              method: 'DELETE',
+              data : {
+                '_token' : window.Laravel.csrfToken
+              },
+              complete : function (resp) {
+                console.log(resp);
+                if(resp.responseText){
+                  //  alert(resp.responseText)
+                  li.parentNode.removeChild(li);
+                  // $(li).remove();
+                } else {
+                  alert('Problem contacting server');
+                }
+              }
+            }
+          )
+        });
+      });
+      </script>
+    @endsection
