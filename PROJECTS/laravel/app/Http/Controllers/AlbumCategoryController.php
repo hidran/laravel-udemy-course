@@ -58,8 +58,16 @@ class AlbumCategoryController extends Controller
         $category = new AlbumCategory();
         $category->category_name = $request->category_name;
         $category->user_id = Auth::id();
-        $category->save();
-        return redirect()->route('categories.index');
+       $res =  $category->save();
+        if($request->expectsJson()){
+            return [
+                'message' => $res ? 'Category created': 'Could not create category '. $category->category_name,
+                'success' => $res,
+                'data' => $category
+            ];
+        } else {
+            return redirect()->route('categories.index');
+        }
     }
 
     /**
@@ -95,8 +103,15 @@ class AlbumCategoryController extends Controller
     public function update(Request $request, AlbumCategory $category)
     {
         $category->category_name = $request->category_name;
-        $category->save();
-        return redirect()->route('categories.index');
+        $res =  $category->save();
+        if($request->expectsJson()){
+            return [
+                'message' => $res ? 'Category updated': 'Could not update category '. $category->category_name,
+                'success' => $res
+            ];
+        } else {
+            return redirect()->route('categories.index');
+        }
     }
 
     /**
