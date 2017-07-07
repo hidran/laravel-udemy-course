@@ -105,9 +105,16 @@ class AlbumCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( AlbumCategory $category)
+    public function destroy( AlbumCategory $category, Request $req)
     {
        $res=  $category->delete();
-      return  redirect()->route('categories.index');
+       if($req->expectsJson()){
+           return [
+               'message' => $res ? 'Category deleted': 'Could not delete category '. $category->category_name,
+               'success' => $res
+           ];
+       } else {
+           return  redirect()->route('categories.index');
+       }
     }
 }

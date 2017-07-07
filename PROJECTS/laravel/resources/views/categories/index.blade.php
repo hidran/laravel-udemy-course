@@ -15,7 +15,7 @@
               <th>&nbsp;</th>
         </tr>
         @forelse($categories as $categoryI)
-            <tr>
+            <tr id="tr-{{$categoryI->id}}">
               
                 <td>{{$categoryI->id}}</td>
                 <td>{{$categoryI->category_name}}</td>
@@ -28,7 +28,7 @@
                           class="form-inline form-delete">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
-                        <button class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
+                        <button id="btnDelete-{{$categoryI->id}}" class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
                         <a TITLE="UPDATE" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
                     </form>
                    
@@ -57,31 +57,31 @@
     @parent
     <script>
       $('document').ready(function () {
-alert('oj')
+
         $('div.alert').fadeOut(5000);
 
-        $('form.form-delete button').on('click',function (ele) {
+        $('form .btn-danger ').on('click',function (ele) {
           ele.preventDefault();
-          var btn = ele.target;
-          var f = btn.parentNode;
           
-          alert(f.action)
-         
+          var f = this.parentNode;
+          var categoryId = this.id.replace('btnDelete-','')*1;
+          var Trid ='tr-'+ categoryId;
+          var urlCategory = f.action;
 
-          var urlAlbum = f.action;
-          var li = f.parentNode.parentNode;
+        
           $.ajax(
-            urlAlbum,
+              urlCategory,
             {
               method: 'DELETE',
               data : {
                 '_token' : window.Laravel.csrfToken
               },
               complete : function (resp) {
-                console.log(resp);
-                if(resp.responseText){
+                var response = JSON.parse(resp.responseText);
+                alert(response.message);
+                if(response.success){
                   //  alert(resp.responseText)
-                  li.parentNode.removeChild(li);
+                  $('#'+Trid).fadeOut();
                   // $(li).remove();
                 } else {
                   alert('Problem contacting server');
