@@ -4,7 +4,7 @@
     @include('partials.inputerrors')
 <div class="row">
     <div class="col-7">
-    <table class="table table-striped">
+    <table class="table table-striped" id="categoryList">
         <tr>
      
             <th>ID</th>
@@ -18,7 +18,7 @@
             <tr id="tr-{{$categoryI->id}}">
               
                 <td>{{$categoryI->id}}</td>
-                <td>{{$categoryI->category_name}}</td>
+                <td id="catid-{{$categoryI->id}}">{{$categoryI->category_name}}</td>
                 <td>{{$categoryI->created_at}}</td>
                
                 <td>{{$categoryI->albums_count}}</td>
@@ -29,7 +29,7 @@
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <button id="btnDelete-{{$categoryI->id}}" class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
-                        <a TITLE="UPDATE" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
+                        <a TITLE="UPDATE" id="upd-{{$categoryI->id}}" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
                     </form>
                    
                 </td>
@@ -108,8 +108,8 @@
                           var response = JSON.parse(resp.responseText);
                           alert(response.message);
                           if(response.success){
-                              f.category_name.value = '';
-                             f.reset();
+                              f[0].category_name.value = '';
+                             f[0].reset();
                           } else {
                               alert('Problem contacting server');
                           }
@@ -118,5 +118,29 @@
               )
           });
       });
+      // update category ajax
+      // add Category ajax
+      $('#categoryList a.btn-primary').on('click',function (ele) {
+          ele.preventDefault();
+        var categoryId = this.id.replace('upd-','')*1;
+      
+        var catRow = $('#tr-' +categoryId);
+        $('#categoryList tr').css('border','0px');
+          catRow.css('border', '1px solid red');
+        var urlUpdate  =this.href.replace('/edit','');
+        var tdCat =$('#catid-' + categoryId);
+          var category_name = tdCat.text();
+          var f = $('#manageCategoryForm');
+          f.attr('action',urlUpdate);
+          f[0].category_name.value = category_name;
+          f[0].category_name.addEventListener('keyup', function(){
+              tdCat.text( f[0].category_name.value);
+          });
+          var input = document.createElement('input');
+           input.name ='_method';
+           input.type ="hidden";
+           input.value = 'PATCH';
+           f[0].appendChild(input);
+       });
       </script>
     @endsection
