@@ -16,6 +16,8 @@ class CreateModelsAlbumCategoriesTable extends Migration
         Schema::create('album_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_name', 64)->unique();
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->on('users')->references('id');
             $table->softDeletes();
             $table->timestamps();
         });

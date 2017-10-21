@@ -36,7 +36,7 @@ class AlbumUpdateRequest extends FormRequest
             'name' => 'required',
             
             'name' => Rule::unique('albums','album_name')->ignore($this->id,'id'),
-            'description' => 'required',
+
            
             // 'user_id' => 'required'
         ];

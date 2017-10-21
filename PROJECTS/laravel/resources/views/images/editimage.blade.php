@@ -21,6 +21,7 @@
             <input type="text" required name="name" id="name" class="form-control" value="{{$photo->name}}" placeholder="Image name">
 
         </div>
+                <label for="">Album</label>
                 <div class="form-group">
                     <select required name="album_id" id="album_id">
                         <option value="">SELECT</option>
@@ -36,7 +37,7 @@
         @include('images.partials.fileupload')
         <div class="form-group">
             <label for="">Description</label>
-            <textarea required name="description" id="description" class="form-control" placeholder="Album description">{{$photo->description}}</textarea>
+            <textarea  name="description" id="description" class="form-control" placeholder="Album description">{{$photo->description}}</textarea>
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
