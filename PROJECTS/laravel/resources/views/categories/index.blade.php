@@ -4,7 +4,7 @@
     @include('partials.inputerrors')
 <div class="row">
     <div class="col-7">
-    <table class="table table-striped">
+    <table class="table table-striped" id="categoryList">
         <tr>
      
             <th>ID</th>
@@ -15,10 +15,10 @@
               <th>&nbsp;</th>
         </tr>
         @forelse($categories as $categoryI)
-            <tr>
+            <tr id="tr-{{$categoryI->id}}">
               
                 <td>{{$categoryI->id}}</td>
-                <td>{{$categoryI->category_name}}</td>
+                <td id="catid-{{$categoryI->id}}">{{$categoryI->category_name}}</td>
                 <td>{{$categoryI->created_at}}</td>
                
                 <td>{{$categoryI->albums_count}}</td>
@@ -28,8 +28,8 @@
                           class="form-inline form-delete">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
-                        <button class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
-                        <a TITLE="UPDATE" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
+                        <button id="btnDelete-{{$categoryI->id}}" class="btn btn-danger" title="DELETE"><span class="fa fa-minus"></span></button>&nbsp;
+                        <a TITLE="UPDATE" id="upd-{{$categoryI->id}}" href="{{route('categories.edit',$categoryI->id )}}" class="btn btn-primary"><span class="fa fa-pencil"></span> </a>
                     </form>
                    
                 </td>
@@ -60,28 +60,28 @@
 
         $('div.alert').fadeOut(5000);
 
-        $('form.form-delete button').on('click',function (ele) {
+        $('form .btn-danger ').on('click',function (ele) {
           ele.preventDefault();
-          var btn = ele.target;
-          var f = btn.parentNode;
           
+          var f = this.parentNode;
+          var categoryId = this.id.replace('btnDelete-','')*1;
+          var Trid ='tr-'+ categoryId;
+          var urlCategory = f.action;
 
-         
-
-          var urlAlbum = f.action;
-          var li = f.parentNode.parentNode;
+        
           $.ajax(
-            urlAlbum,
+              urlCategory,
             {
               method: 'DELETE',
               data : {
                 '_token' : window.Laravel.csrfToken
               },
               complete : function (resp) {
-                console.log(resp);
-                if(resp.responseText){
+                var response = JSON.parse(resp.responseText);
+                alert(response.message);
+                if(response.success){
                   //  alert(resp.responseText)
-                  li.parentNode.removeChild(li);
+                  $('#'+Trid).fadeOut();
                   // $(li).remove();
                 } else {
                   alert('Problem contacting server');
@@ -90,6 +90,57 @@
             }
           )
         });
+        // add Category ajax
+          $('#manageCategoryForm .btn-primary ').on('click',function (ele) {
+              ele.preventDefault();
+
+              var f = $('#manageCategoryForm');
+              var data  = f.serialize();
+              var urlCategory = f.attr('action');   
+         
+
+              $.ajax(
+                  urlCategory,
+                  {
+                      method: 'POST',
+                      data : data,
+                      complete : function (resp) {
+                          var response = JSON.parse(resp.responseText);
+                          alert(response.message);
+                          if(response.success){
+                              f[0].category_name.value = '';
+                             f[0].reset();
+                          } else {
+                              alert('Problem contacting server');
+                          }
+                      }
+                  }
+              )
+          });
       });
+      // update category ajax
+      // add Category ajax
+      $('#categoryList a.btn-primary').on('click',function (ele) {
+          ele.preventDefault();
+        var categoryId = this.id.replace('upd-','')*1;
+      
+        var catRow = $('#tr-' +categoryId);
+        $('#categoryList tr').css('border','0px');
+          catRow.css('border', '1px solid red');
+        var urlUpdate  =this.href.replace('/edit','');
+        var tdCat =$('#catid-' + categoryId);
+          var category_name = tdCat.text();
+          var f = $('#manageCategoryForm');
+          f.attr('action',urlUpdate);
+          f[0].category_name.value = category_name;
+          f[0].category_name.addEventListener('keyup', function(){
+              tdCat.text( f[0].category_name.value);
+          });
+          var input = document.createElement('input');
+           input.name ='_method';
+           input.type ="hidden";
+           input.value = 'PATCH';
+           f[0].appendChild(input);
+       });
       </script>
     @endsection
