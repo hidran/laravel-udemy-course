@@ -5,3 +5,4 @@ PROJECTS/corsolaravel/
 PROJECTS/phpmyadmin/
 node_modules/
 npm-debug.log
+/.idea
