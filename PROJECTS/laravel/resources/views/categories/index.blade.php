@@ -57,7 +57,7 @@
     @parent
     <script>
       $('document').ready(function () {
-alert('oj')
+
         $('div.alert').fadeOut(5000);
 
         $('form.form-delete button').on('click',function (ele) {
@@ -65,7 +65,7 @@ alert('oj')
           var btn = ele.target;
           var f = btn.parentNode;
           
-          alert(f.action)
+
          
 
           var urlAlbum = f.action;
