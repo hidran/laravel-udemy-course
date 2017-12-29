@@ -23,10 +23,6 @@ databases:
 variables:
     - key: APP_ENV
       value: local
-   #  - key: http_proxy
-   #    value: http://161.27.14.87:8080
-  #   - key: https_proxy
-   #    value: http://161.27.14.87:8080
 
 # blackfire:
 #     - id: foo

@@ -1,10 +1,11 @@
 {
-    "name": “Homestead Improved“,
-    "description": “See here: http://www.sitepoint.com/quick-tip-get-homestead-vagrant-vm-running/“,
+    "name": "Homestead Improved",
+    "description": "See here: http://www.sitepoint.com/quick-tip-get-homestead-vagrant-vm-running/",
     "require": {
-        "php": ">=7”,
+        "php": ">=7",
         "symfony/console": "~2.0",
-        "symfony/process": "~2.0"
+        "symfony/process": "~2.0",
+        "symfony/yaml": "^3.3"
     },
     "license": "MIT",
     "authors": [
@@ -13,8 +14,8 @@
             "email": "taylorotwell@gmail.com"
         },
         {
-            "name": “Bruno Skvorc“,
-            "email": “bruno.skvorc@sitepoint.com”
+            "name": "Bruno Skvorc",
+            "email": "bruno.skvorc@sitepoint.com"
         }
     ],
     "autoload": {
