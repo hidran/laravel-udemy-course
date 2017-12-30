@@ -18,15 +18,20 @@ Route::group(
     ]
     ,
     function () {
-        Route::get('/', 'AlbumsController@index')->name('albums');
-        //   Route::get('/home','AlbumsController@index')->name('albums');
-        Route::get('/albums/create', 'AlbumsController@create')->name('album.create');
-        Route::get('/albums', 'AlbumsController@index')->name('albums');
+        Route::get('/', 'AlbumsController@index')
+            ->name('albums');
+        
+         Route::get('/albums/create', 'AlbumsController@create')
+             ->name('album.create');
+        Route::get('/albums', 'AlbumsController@index')
+            ->name('albums');
 
-        Route::get('/albums/{album}', 'AlbumsController@show')->where('id', '[0-9]+')
+        Route::get('/albums/{album}', 'AlbumsController@show')
+            ->where('id', '[0-9]+')
             ->middleware('can:view,album');
 
-        Route::get('/albums/{id}/edit', 'AlbumsController@edit')->where('id', '[0-9]+')
+        Route::get('/albums/{id}/edit', 'AlbumsController@edit')
+            ->where('id', '[0-9]+')
             ->name('album.edit');
         Route::delete('/albums/{album}', 'AlbumsController@delete')
             ->name('album.delete')
@@ -57,6 +62,7 @@ Route::group(
                 ->get();
             return $usersnoalbum;
         });
+        
         Route::resource('photos', 'PhotosController');
         Route::resource('categories', 'AlbumCategoryController');
     }
@@ -71,16 +77,23 @@ Route::group(
     ]
     ,
     function () {
-        Route::get('albums', 'GalleryController@index')->name('gallery.albums');
+        Route::get('albums', 'GalleryController@index')
+            ->name('gallery.albums');
+        
         Route::get('albums/category/{category}',
-            'GalleryController@showAlbumsByCategory')->name('gallery.album.category');
-        Route::get('/{category_id?}', 'GalleryController@index')->name('gallery.albums');
-        Route::get('album/{album}/images', 'GalleryController@showAlbumImages')->name('gallery.album.images');
+            'GalleryController@showAlbumsByCategory')
+            ->name('gallery.album.category');
+        
+        Route::get('/{category_id?}', 'GalleryController@index')
+            ->name('gallery.albums');
+        
+        Route::get('album/{album}/images', 'GalleryController@showAlbumImages')
+            ->name('gallery.album.images');
     });
 // images
 
 Auth::routes();
 
 Route::get('/', 'GalleryController@index');
-Route::get('home', 'GalleryController@index');
+Route::redirect('home', '/');
 
