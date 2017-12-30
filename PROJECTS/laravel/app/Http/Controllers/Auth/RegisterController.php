@@ -2,7 +2,7 @@
 
 namespace LaraCourse\Http\Controllers\Auth;
 
-use LaraCourse\User;
+use LaraCourse\Models\User;
 use LaraCourse\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

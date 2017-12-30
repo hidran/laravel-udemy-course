@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => LaraCourse\User::class,
+        'model' => LaraCourse\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \LaraCourse\User::class,
+            'model' => \LaraCourse\Models\User::class,
         ],
        
         // 'users' => [

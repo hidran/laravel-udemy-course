@@ -10,7 +10,7 @@ use LaraCourse\Models\Photo;
 use LaraCourse\Policies\AlbumCategoryPolicy;
 use LaraCourse\Policies\AlbumPolicy;
 use LaraCourse\Policies\PhotoPolicy;
-use LaraCourse\User;
+use LaraCourse\Models\User;
 
 class AuthServiceProvider extends ServiceProvider
 {

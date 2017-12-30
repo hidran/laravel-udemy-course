@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use LaraCourse\User;
+use LaraCourse\Models\User;
 
 class SeedUserTable extends Seeder
 {
@@ -14,7 +14,7 @@ class SeedUserTable extends Seeder
     public function run()
     {
        
-      $users =factory(LaraCourse\User::class, 30)->create();
+      $users =factory(LaraCourse\Models\User::class, 30)->create();
       
     }
      

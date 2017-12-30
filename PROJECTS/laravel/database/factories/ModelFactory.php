@@ -14,7 +14,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use Carbon\Carbon;
 use LaraCourse\Models\Album;
-use LaraCourse\User;
+use LaraCourse\Models\User;
 $cats =
     ['abstract',
         'animals',
@@ -31,7 +31,7 @@ $cats =
         'transport',
     ];
 
-$factory->define(LaraCourse\User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

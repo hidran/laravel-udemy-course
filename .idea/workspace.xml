@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68696a96-d883-4f19-9b08-c9dce9bc1ce7" name="Default" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Http/Controllers/Auth/RegisterController.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Http/Controllers/Auth/RegisterController.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Models/Album.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Models/Album.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Models/AlbumCategory.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Models/AlbumCategory.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/AlbumCategoryPolicy.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/AlbumCategoryPolicy.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/AlbumPolicy.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/AlbumPolicy.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/PhotoPolicy.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Policies/PhotoPolicy.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AuthServiceProvider.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AuthServiceProvider.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/User.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Models/User.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/config/auth.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/config/auth.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/config/services.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/config/services.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/DatabaseSeeder.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedUserTable.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedUserTable.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,40 +47,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="PhotosController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Http/Controllers/PhotosController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
-              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/config/app.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4779">
-              <caret line="186" column="54" lean-forward="false" selection-start-line="186" selection-start-column="53" selection-end-line="186" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="2456">
               <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
               <folding>
                 <element signature="e#7#29#0#PHP" expanded="true" />
@@ -77,51 +62,53 @@
       <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+            <state relative-caret-position="194">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppServiceProvider.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+            <state relative-caret-position="54">
+              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding>
-                <element signature="e#39#46#0#PHP" expanded="true" />
+                <element signature="e#37#82#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Blueprint.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
+      <file leaf-file-name="SoftDeletes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/SoftDeletes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="1135" column="20" lean-forward="false" selection-start-line="1135" selection-start-column="20" selection-end-line="1135" selection-end-column="20" />
+            <state relative-caret-position="-1237">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pages.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php">
+      <file leaf-file-name="AlbumCategories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/AlbumCategories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="81">
+              <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Http/Controllers/PageController.php">
+      <file leaf-file-name="ModelFactory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-511">
-              <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="-405">
+              <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+              <folding>
+                <element signature="e#455#473#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,92 +123,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blog.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/resources/views/blog.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1514589012074" expanded="true" signature="9:28" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="39:53" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="64:73" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="109:230" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="133:224" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="324:341" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="353:395" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="407:434" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="532:652" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="551:650" ph="..." />
-                <marker date="1514589012074" expanded="true" signature="663:671" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-163">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlbumCategories.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/AlbumCategories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeedAlbumCategoriesTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editimage.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/resources/views/images/editimage.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="20" column="119" lean-forward="false" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
-              <folding>
-                <marker date="1514670982617" expanded="true" signature="9:28" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="39:48" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="71:81" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="182:204" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="214:224" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="246:280" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="346:367" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="408:429" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="666:678" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="666:705" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="994:1010" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1050:1086" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1098:1107" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1113:1130" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1299:1311" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1331:1359" ph="..." />
-                <marker date="1514670982617" expanded="true" signature="1554:1573" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>filp</find>
+      <find>LaraCourse\User</find>
     </findStrings>
+    <replaceStrings>
+      <replace>LaraCourse\Models\User</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -248,8 +159,10 @@
         <option value="$PROJECT_DIR$/PROJECTS/laravel/database/factories/AlbumCategories.php" />
         <option value="$PROJECT_DIR$/PROJECTS/laravel/routes/web.php" />
         <option value="$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php" />
-        <option value="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/PROJECTS/laravel/app/Models/User.php" />
+        <option value="$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php" />
       </list>
     </option>
   </component>
@@ -317,7 +230,7 @@
               <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Providers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
@@ -325,6 +238,14 @@
               <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laragallery_55" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="factories" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
@@ -333,6 +254,13 @@
               <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laragallery_55" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="routes" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -357,7 +285,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/PROJECTS/laravel" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="whoops&#9;null&#9;null&#10;renderExceptionWithWhoops&#9;null&#9;null&#10;whoo&#9;null&#9;null&#10;s&#9;FILE&#9;file://D:/PROJECTS/CORSOLARAVEL/PROJECTS/laravel/resources/views/staff.php&#10;st&#9;FILE&#9;file://D:/PROJECTS/CORSOLARAVEL/PROJECTS/laravel/resources/views/staff.php&#10;Applica&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="LaraCourse\User&#9;null&#9;null&#10;whoops&#9;null&#9;null&#10;renderExceptionWithWhoops&#9;null&#9;null&#10;whoo&#9;null&#9;null&#10;s&#9;FILE&#9;file://D:/PROJECTS/CORSOLARAVEL/PROJECTS/laravel/resources/views/staff.php&#10;st&#9;FILE&#9;file://D:/PROJECTS/CORSOLARAVEL/PROJECTS/laravel/resources/views/staff.php&#10;Applica&#9;null&#9;null" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -369,6 +297,9 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PROJECTS\LARAVELPROJECTS\laragallery_55\PROJECTS\laravel\app\Models" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PROJECTS\CORSOLARAVEL\PROJECTS\laravel\resources\views" />
     </key>
@@ -455,7 +386,7 @@
       <workItem from="1507373590564" duration="759000" />
       <workItem from="1507450995755" duration="169000" />
       <workItem from="1508597886730" duration="851000" />
-      <workItem from="1514589035714" duration="16053000" />
+      <workItem from="1514589035714" duration="17558000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;">
       <created>1486392628243</created>
@@ -468,7 +399,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27378000" />
+    <option name="totallyTimeSpent" value="28883000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,18 +412,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="720" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8540146" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9489051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976973" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15460527" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -505,7 +438,6 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -556,14 +488,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" />
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/_ide_helper" />
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Support/Facades/View.php" />
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php" />
@@ -829,22 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/AlbumCategories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -901,14 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Http/Controllers/PageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-511">
@@ -925,28 +825,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
-          <folding>
-            <element signature="e#7#29#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="1135" column="20" lean-forward="false" selection-start-line="1135" selection-start-column="20" selection-end-line="1135" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -956,7 +838,69 @@
         <state relative-caret-position="135">
           <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding>
-            <element signature="e#39#46#0#PHP" expanded="true" />
+            <element signature="e#39#46#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2456">
+          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
+          <folding>
+            <element signature="e#7#29#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/SoftDeletes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1237">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/AlbumCategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/factories/ModelFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding>
+            <element signature="e#455#473#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="e#37#82#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

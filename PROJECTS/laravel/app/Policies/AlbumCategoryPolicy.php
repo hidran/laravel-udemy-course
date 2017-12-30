@@ -4,7 +4,7 @@ namespace LaraCourse\Policies;
 
 use function dd;
 use LaraCourse\Models\AlbumCategory;
-use LaraCourse\User;
+use LaraCourse\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AlbumCategoryPolicy

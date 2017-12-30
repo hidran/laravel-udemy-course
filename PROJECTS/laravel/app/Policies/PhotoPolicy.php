@@ -2,7 +2,7 @@
 
 namespace LaraCourse\Policies;
 
-use LaraCourse\User;
+use LaraCourse\Models\User;
 use LaraCourse\Models\Photo;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -13,7 +13,7 @@ class PhotoPolicy
     /**
      * Determine whether the user can view the photo.
      *
-     * @param  \LaraCourse\User  $user
+     * @param  \LaraCourse\Models\User  $user
      * @param  \LaraCourse\Photo  $photo
      * @return mixed
      */
@@ -26,7 +26,7 @@ class PhotoPolicy
     /**
      * Determine whether the user can create photos.
      *
-     * @param  \LaraCourse\User  $user
+     * @param  \LaraCourse\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -37,7 +37,7 @@ class PhotoPolicy
     /**
      * Determine whether the user can update the photo.
      *
-     * @param  \LaraCourse\User  $user
+     * @param  \LaraCourse\Models\User  $user
      * @param  \LaraCourse\Photo  $photo
      * @return mixed
      */
@@ -49,7 +49,7 @@ class PhotoPolicy
     /**
      * Determine whether the user can delete the photo.
      *
-     * @param  \LaraCourse\User  $user
+     * @param  \LaraCourse\Models\User  $user
      * @param  \LaraCourse\Photo  $photo
      * @return mixed
      */
