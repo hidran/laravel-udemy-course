@@ -26,7 +26,7 @@ class PhotosController extends Controller
     protected $rules = [
         'album_id' => 'required|integer|exists:albums,id',
         'name' => 'required',
-    //    'description' => 'required',
+        'description' => 'nullable|min:3',
         'img_path' => 'required|image'
     ];  
     
@@ -72,8 +72,10 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-       
-       $this->validate($request, $this->rules, $this->errorMessages);
+      $picData =   $request->validate($this->rules, $this->errorMessages);
+      dd($picData);
+      Photo::create($picData);
+      // $this->validate($request, $this->rules, $this->errorMessages);
        
         $photo = new Photo();
         $photo->name = $request->input('name');

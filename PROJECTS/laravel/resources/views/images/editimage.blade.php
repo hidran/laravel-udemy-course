@@ -18,7 +18,7 @@
                 @endif
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" required name="name" id="name" class="form-control" value="{{$photo->name || old('name')}}" placeholder="Image name">
+            <input type="text" required name="name" id="name" class="form-control" value="{{$photo->name ?$photo->name: old('name')}}" placeholder="Image name">
 
         </div>
                 <label for="">Album</label>

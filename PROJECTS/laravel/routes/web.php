@@ -1,11 +1,15 @@
 <?php
 
+use function foo\func;
 use Illuminate\Foundation\Auth\User;
 use LaraCourse\Models\Album;
 use LaraCourse\Models\Photo;
 
-
-//ALBUMS
+Route::get('allalbums', function(){
+    $albums = Album::get();
+    $albums->dump();
+    $albums->pluck('album_name')->dd();
+});
 
 Route::group(
     [

@@ -134,7 +134,7 @@ class AlbumsController extends Controller
                 $album->categories()->attach($request->categories);
             }
              if($this->processFile($album->id, request(), $album)){
-                 $album->save(); 
+                 $album->save();
              }
         }
       
