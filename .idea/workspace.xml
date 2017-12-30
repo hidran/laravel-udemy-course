@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68696a96-d883-4f19-9b08-c9dce9bc1ce7" name="Default" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
-      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php" />
-      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/routes/web.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/routes/web.php" />
+      <change beforePath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="485">
-              <caret line="97" column="26" lean-forward="true" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
+              <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
               <folding>
                 <element signature="e#7#29#0#PHP" expanded="true" />
               </folding>
@@ -77,12 +74,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppServiceProvider.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+              <folding>
+                <element signature="e#39#46#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -173,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -185,23 +194,23 @@
             <state relative-caret-position="378">
               <caret line="20" column="119" lean-forward="false" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
               <folding>
-                <marker date="1514597163027" expanded="true" signature="9:28" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="39:48" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="71:81" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="182:204" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="214:224" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="246:280" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="346:367" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="408:429" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="666:678" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="666:705" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="994:1010" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1050:1086" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1098:1107" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1113:1130" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1299:1311" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1331:1359" ph="..." />
-                <marker date="1514597163027" expanded="true" signature="1554:1573" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="9:28" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="39:48" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="71:81" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="182:204" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="214:224" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="246:280" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="346:367" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="408:429" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="666:678" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="666:705" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="994:1010" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1050:1086" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1098:1107" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1113:1130" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1299:1311" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1331:1359" ph="..." />
+                <marker date="1514670982617" expanded="true" signature="1554:1573" ph="..." />
               </folding>
             </state>
           </provider>
@@ -240,6 +249,7 @@
         <option value="$PROJECT_DIR$/PROJECTS/laravel/routes/web.php" />
         <option value="$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php" />
         <option value="$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php" />
       </list>
     </option>
   </component>
@@ -300,6 +310,14 @@
               <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laragallery_55" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PROJECTS" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Providers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="laragallery_55" type="b2602c69:ProjectViewProjectNode" />
@@ -437,7 +455,7 @@
       <workItem from="1507373590564" duration="759000" />
       <workItem from="1507450995755" duration="169000" />
       <workItem from="1508597886730" duration="851000" />
-      <workItem from="1514589035714" duration="15222000" />
+      <workItem from="1514589035714" duration="16053000" />
     </task>
     <task id="LOCAL-00001" summary="first commit&#10;">
       <created>1486392628243</created>
@@ -450,7 +468,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26547000" />
+    <option name="totallyTimeSpent" value="27378000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,14 +481,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="720" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8540245" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8540146" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976973" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -660,14 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2017_05_07_224936_create_models_album_categories_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-243">
@@ -775,23 +784,23 @@
         <state relative-caret-position="378">
           <caret line="20" column="119" lean-forward="false" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
           <folding>
-            <marker date="1514597163027" expanded="true" signature="9:28" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="39:48" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="71:81" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="182:204" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="214:224" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="246:280" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="346:367" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="408:429" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="666:678" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="666:705" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="994:1010" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1050:1086" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1098:1107" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1113:1130" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1299:1311" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1331:1359" ph="..." />
-            <marker date="1514597163027" expanded="true" signature="1554:1573" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="9:28" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="39:48" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="71:81" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="182:204" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="214:224" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="246:280" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="346:367" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="408:429" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="666:678" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="666:705" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="994:1010" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1050:1086" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1098:1107" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1113:1130" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1299:1311" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1331:1359" ph="..." />
+            <marker date="1514670982617" expanded="true" signature="1554:1573" ph="..." />
           </folding>
         </state>
       </provider>
@@ -839,7 +848,7 @@
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/seeds/SeedAlbumCategoriesTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -911,7 +920,7 @@
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/pages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -919,7 +928,7 @@
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
-          <caret line="97" column="26" lean-forward="true" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
+          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="26" />
           <folding>
             <element signature="e#7#29#0#PHP" expanded="true" />
           </folding>
@@ -937,8 +946,18 @@
     <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECTS/laravel/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+          <folding>
+            <element signature="e#39#46#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
