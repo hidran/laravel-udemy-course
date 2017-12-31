@@ -95,7 +95,7 @@ class FileServiceProvider extends ServiceProvider
     protected function mapAdminRoutes()
     {
         Route::prefix('admin')
-            ->namespace($this->namespace)
+            ->namespace($this->namespace)->middleware(['web','auth','VerifyIsAdmin'])
             ->group(base_path('routes/admin.php'));
 
     }
