@@ -1,7 +1,7 @@
 @extends('templates.admin')
 @section('content')
     <h1>Users</h1>
-    <table class="table table-striped" id="dataTable">
+    <table class="table table-striped" id="users-table">
         <thead>
         <tr>
             <th>NAME</th>
@@ -13,44 +13,26 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
-            <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role}}</td>
-                <td>{{$user->created_at}}</td>
-                <td>{{$user->deleted_at}}</td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <button class="btn btn-primary  btn-sm" title="UPDATE">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </button>
-                        </div>
-                        <div class="col-md-4"> 
-                           
-                            <button 
-                                    @if($user->deleted_at)
-                                            disabled
-                                    @else
-                                            
-                                    @endif 
-                                            
-                                    class="btn btn-danger btn-sm" title="SOFT DELETE">
-                                <i class="fa fa-trash-o"></i>
-                            </button>
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-danger  btn-sm" title="FORCE DELETE">
-                                <i class="fa fa-minus-square-o"></i>
-                            </button>
-                        </div>
-                        
-                    </div>
-                </td>
-            </tr>
-            @endforeach
+       
             
         </tbody>
     </table>
+    @endsection
+@section('footer')
+    @parent
+    <script>
+    $('#users-table').DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: '{{route('admin.getUsers')}}',
+    columns: [
+   
+    {data: 'name', name: 'name'},
+    {data: 'email', name: 'email'},
+    {data: 'created_at', name: 'created'},
+    {data: 'deleted_at', name: 'del'},
+    {data: 'action', name: 'action', orderable: false, searchable: false}
+    ]
+    });
+    </script>
     @endsection
