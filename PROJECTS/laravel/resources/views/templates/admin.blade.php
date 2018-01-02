@@ -15,6 +15,11 @@
     <!-- Custom styles for this template-->
     <link href="{{url('/')}}/css/sb-admin.css" rel="stylesheet">
     <link href="{{url('/')}}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
