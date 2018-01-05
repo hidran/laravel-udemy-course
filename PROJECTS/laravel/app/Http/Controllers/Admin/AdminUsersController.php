@@ -3,7 +3,9 @@
 namespace LaraCourse\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use LaraCourse\Http\Controllers\Auth\RegisterController;
 use LaraCourse\Http\Controllers\Controller;
+use LaraCourse\Http\Requests\UserFormRequest;
 use LaraCourse\Models\User;
 use DataTables;
 
@@ -48,6 +50,13 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
            ->addColumn('action', function ($user) {
                return  $this->getUserButtons($user);
                    
+           })->editColumn('created_at', function($user ){
+               return $user->created_at? $user->created_at->format('d/m/y H:i') : '';
+           })
+           ->editColumn('updated_at', function($user ){
+                return $user->updated_at? $user->updated_at->format('d/m/y  H:i') : '';
+           })->editColumn('deleted_at', function($user ){
+               return $user->deleted_at? $user->deleted_at->format('d/m/y  H:i') : '';
            })
            
            ->make(true);
@@ -60,7 +69,8 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      */
     public function create()
     {
-        //
+        $user = new User();
+        return view('admin.edituser', compact('user'));
     }
 
     /**
@@ -69,9 +79,16 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        //
+        $user = new User();
+        $user->password = bcrypt($request->input('email'));
+        
+        $user->fill($request->only(['email','role','name']));
+        $res =  $user->save();
+        $messaggio = $res ? 'User successfully created': 'Problem creating users';
+        session()->flash('message', $messaggio);
+        return redirect()->route('users.edit', ['id'=> $user->id]);
     }
 
     /**
@@ -91,9 +108,10 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-       return "form";
+     
+       return view('admin.edituser', compact('user'));
     }
 
     /**
@@ -103,9 +121,13 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request,User $user )
     {
-        //
+      $user->fill($request->only(['email','role','name']));
+     $res =  $user->save();
+     $messaggio = $res ? 'User successfully updated': 'Prolbem saving users';
+        session()->flash('message', $messaggio);
+      return redirect()->route('users.edit', ['id'=> $user->id]);
     }
 
     /**

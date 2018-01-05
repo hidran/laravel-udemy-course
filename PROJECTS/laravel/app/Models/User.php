@@ -21,6 +21,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','role'
     ];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+    protected $dateFormat = 'Y-m-d H:i:s';
   //  protected $table ='gallery_users';
     /**
      * The attributes that should be hidden for arrays.

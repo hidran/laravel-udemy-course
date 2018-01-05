@@ -80,6 +80,17 @@
                                 {{ csrf_field() }}
                             </form>
                         </li>
+                        @if(Auth::user()->isAdmin())
+                            <li>
+                                <a href="{{route('admin')}}">ADMIN</a>
+                            </li>
+                                    
+                                    <li class="nav-item">
+                                        <a href="{{route('user-list')}}">Users</a>
+                                    </li>
+                              
+                            </li>
+                            @endif
                     </ul>
                 </li>
             @endif

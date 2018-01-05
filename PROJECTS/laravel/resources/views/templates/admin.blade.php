@@ -48,7 +48,7 @@
                         <a href="{{route('user-list')}}">User list</a>
                     </li>
                     <li>
-                        <a href="cards.html">New user</a>
+                        <a href="{{route('users.create')}}">New user</a>
                     </li>
                 </ul>
             </li>
