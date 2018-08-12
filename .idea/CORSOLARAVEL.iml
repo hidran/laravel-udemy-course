@@ -12,39 +12,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="PHP" type="php">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/psr/log" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/process" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/psr/log" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/console" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/process" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="PHARS">
-        <CLASSES>
-          <root url="phar://$MODULE_DIR$/PROJECTS/laravel/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
-          <root url="phar://$MODULE_DIR$/PROJECTS/laravel/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
-        </CLASSES>
-        <SOURCES>
-          <root url="phar://$MODULE_DIR$/PROJECTS/laravel/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
-          <root url="phar://$MODULE_DIR$/PROJECTS/laravel/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>
