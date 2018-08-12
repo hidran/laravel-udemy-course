@@ -72,16 +72,16 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-      $picData =   $request->validate($this->rules, $this->errorMessages);
-      dd($picData);
-      Photo::create($picData);
-      // $this->validate($request, $this->rules, $this->errorMessages);
+     // $picData =   $request->validate($this->rules, $this->errorMessages);
+      //dd($picData);
+     //$photo =  Photo::create($picData);
+       $this->validate($request, $this->rules, $this->errorMessages);
        
         $photo = new Photo();
         $photo->name = $request->input('name');
         $photo->description = $request->input('description');
         $photo->album_id = $request->input('album_id');
-       
+
         
          $this->processFile($photo);
          $photo->save();
