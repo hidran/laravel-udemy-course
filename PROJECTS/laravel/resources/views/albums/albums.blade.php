@@ -16,8 +16,8 @@
                 <th>Album name</th>
                 <th>Thumb</th>
                 <th>Creator</th>
-                <th>Created Date</th>
                 <th>Categories</th>
+                <th>Created Date</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -37,7 +37,7 @@
                     </td>
                     <td>{{$album->user->fullname}}</td>
                     <td>
-                        @if($album->categories)
+                        @if($album->categories->count())
                             <ul>
                                 @foreach($album->categories as $category)
                                     <li>{{$category->category_name}} ({{$category->id}} )</li>
@@ -119,8 +119,7 @@
                     urlAlbum,
                     {
                         method: 'DELETE',
-
-                        data: {
+                         data: {
                             '_token': '{{csrf_token()}}'
                         },
                         complete: function (resp) {
