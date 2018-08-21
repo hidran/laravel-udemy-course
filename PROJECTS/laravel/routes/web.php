@@ -96,4 +96,7 @@ Auth::routes();
 
 Route::get('/', 'GalleryController@index');
 Route::redirect('home', '/');
-
+Route::get('testMail',function (){
+    \Mail::to('hidran@gmail.com')->send(new \LaraCourse\Mail\TestEmail());
+});
+//Route::view('testMail','mails.testemail', ['username'=>'Hidran']);
