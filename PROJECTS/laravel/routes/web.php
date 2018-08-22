@@ -100,3 +100,11 @@ Route::get('testMail',function (){
     \Mail::to('hidran@gmail.com')->send(new \LaraCourse\Mail\TestMd(Auth::user()));
 });
 //Route::view('testMail','mails.testemail', ['username'=>'Hidran']);
+
+Route::get('testEvent', function (){
+    $album = Album::first();
+
+
+    event(new \LaraCourse\Events\NewAlbumCreated($album));
+
+});
