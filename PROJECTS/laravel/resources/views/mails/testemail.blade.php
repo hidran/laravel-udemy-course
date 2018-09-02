@@ -1,1 +1,1 @@
-<h1>Hello world {{$username}}</h1>
+<h1>Hello world {{$user->name}}</h1>

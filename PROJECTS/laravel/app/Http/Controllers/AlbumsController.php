@@ -20,6 +20,7 @@ use function returnArgument;
 use Storage;
 use LaraCourse\Http\Requests\AlbumRequest;
 use LaraCourse\Http\Requests\AlbumUpdateRequest;
+use LaraCourse\Events\NewAlbumCreated;
 class AlbumsController extends Controller
 {
     public function __construct()
@@ -134,12 +135,14 @@ class AlbumsController extends Controller
         $res = $album->save();
        
         if($res){
+            event(new NewAlbumCreated($album));
             if($request->has('categories')){
                 $album->categories()->attach($request->categories);
             }
              if($this->processFile($album->id, request(), $album)){
                  $album->save();
              }
+
         }
       
         
