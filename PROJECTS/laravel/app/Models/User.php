@@ -5,11 +5,12 @@ namespace LaraCourse\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use LaraCourse\Models\Album;
 use LaraCourse\Models\AlbumCategory;
 
 //gallery_users
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;

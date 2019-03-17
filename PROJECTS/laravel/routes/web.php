@@ -13,7 +13,7 @@ Route::get('allalbums', function(){
 
 Route::group(
     [
-        'middleware' => 'auth',
+        'middleware' => ['auth','verified'],
         'prefix' => 'dashboard'
     ]
     ,
@@ -92,7 +92,7 @@ Route::group(
     });
 // images
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'GalleryController@index');
 Route::redirect('home', '/');

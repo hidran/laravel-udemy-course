@@ -16,7 +16,10 @@ class EventServiceProvider extends ServiceProvider
         'LaraCourse\Events\NewAlbumCreated' => [
             'LaraCourse\Listeners\NotifyAdminNewAlbum',
 
-        ]
+        ],
+        'Illuminate\Auth\Events\Verified' => [
+            'App\Listeners\LogVerifiedUser',
+        ],
     ];
 
     /**
