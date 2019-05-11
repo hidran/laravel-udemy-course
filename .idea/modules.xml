@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CORSOLARAVEL.iml" filepath="$PROJECT_DIR$/.idea/CORSOLARAVEL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/laravel56-57.iml" filepath="$PROJECT_DIR$/.idea/laravel56-57.iml" />
     </modules>
   </component>
 </project>
