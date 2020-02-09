@@ -18,21 +18,21 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-     
+
        return view('admin/users');
     }
     private function getUserButtons(User $user)
 {
    $id = $user->id;
-   
- $buttonEdit= '<a href="'.route('users.edit', ['id'=> $id]).'" id="edit-'.$id.'" class="btn btn-sm btn-primary"><i class="fa fa-pencil-square-o"></i></a>&nbsp;';
+
+ $buttonEdit= '<a href="'.route('users.edit', ['user'=> $id]).'" id="edit-'.$id.'" class="btn btn-sm btn-primary"><i class="fa fa-pencil-square-o"></i></a>&nbsp;';
     if($user->deleted_at){
-        $deleteRoute =   route('users.restore', ['id'=> $id]);
-        $iconDelete =   ' <i class="fa fa-repeat"></i> ';  
+        $deleteRoute =   route('users.restore', ['user'=> $id]);
+        $iconDelete =   ' <i class="fa fa-repeat"></i> ';
         $btnClass = 'btn-default';
         $btnId = 'restore-'.$id;
     } else {
-        $deleteRoute =  route('users.destroy', ['id'=> $id]);
+        $deleteRoute =  route('users.destroy', ['user'=> $id]);
         $iconDelete =   ' <i class="fa fa-trash-o"></i> ';
         $btnId = 'delete-'.$id;
         $btnClass = 'btn-danger';
@@ -40,7 +40,7 @@ class AdminUsersController extends Controller
 
 $buttonDelete = '<a  href="'.$deleteRoute.'" title="soft delete" id="'.$btnId.'" class="ajax btn btn-sm '.$btnClass.'">'.$iconDelete.' </a>&nbsp;';
 
-$buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" title="hard delete" id="forcedelete-'.$id.'" class="ajax btn btn-sm btn-danger"><i class="fa fa-minus-square-o"></i> </a>';
+$buttonForceDelete = '<a href="'.route('users.destroy', ['user'=> $id]).'?hard=1" title="hard delete" id="forcedelete-'.$id.'" class="ajax btn btn-sm btn-danger"><i class="fa fa-minus-square-o"></i> </a>';
     return $buttonEdit.$buttonDelete.$buttonForceDelete;
 }
    public function getUsers()
@@ -49,7 +49,7 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
        $result = DataTables::of($users )
            ->addColumn('action', function ($user) {
                return  $this->getUserButtons($user);
-                   
+
            })->editColumn('created_at', function($user ){
                return $user->created_at? $user->created_at->format('d/m/y H:i') : '';
            })
@@ -58,7 +58,7 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
            })->editColumn('deleted_at', function($user ){
                return $user->deleted_at? $user->deleted_at->format('d/m/y  H:i') : '';
            })
-           
+
            ->make(true);
        return $result;
    }
@@ -83,12 +83,12 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
     {
         $user = new User();
         $user->password = bcrypt($request->input('email'));
-        
+
         $user->fill($request->only(['email','role','name']));
         $res =  $user->save();
-        $messaggio = $res ? 'User successfully created': 'Problem creating users';
+         $messaggio = $res ? 'User successfully created': 'Problem creating users';
         session()->flash('message', $messaggio);
-        return redirect()->route('users.edit', ['id'=> $user->id]);
+        return redirect()->route('users.edit', ['user'=> $user->id]);
     }
 
     /**
@@ -110,7 +110,7 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      */
     public function edit(User $user)
     {
-     
+
        return view('admin.edituser', compact('user'));
     }
 
@@ -127,7 +127,7 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
      $res =  $user->save();
      $messaggio = $res ? 'User successfully updated': 'Prolbem saving users';
         session()->flash('message', $messaggio);
-      return redirect()->route('users.edit', ['id'=> $user->id]);
+      return redirect()->route('users.edit', ['user'=> $user->id]);
     }
 
     /**
@@ -139,9 +139,9 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
     public function destroy($id)
     {
         $user = User::withTrashed()->findOrFail($id);
-        
+
          $hard = \request('hard', '');
-         
+
         $res = $hard? $user->forceDelete() : $user->delete();
        return ''.$res;
     }
@@ -156,7 +156,7 @@ $buttonForceDelete = '<a href="'.route('users.destroy', ['id'=> $id]).'?hard=1" 
     {
         $user = User::withTrashed()->findOrFail($id);
 
-       
+
         $res = $user->restore() ;
         return ''.$res;
     }

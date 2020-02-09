@@ -34,6 +34,6 @@ class NotifyAdminNewAlbum
             \Mail::to($admin->email)->send( new NotifyAdminAlbum($event->album));
            // $admin->email
       }
-       dd( $event->album->album_name);
+     //  dd( $event->album->album_name);
     }
 }
