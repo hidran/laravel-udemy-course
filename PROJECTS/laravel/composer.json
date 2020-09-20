@@ -8,15 +8,17 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": "^7.2",
+    "php": "^7.4",
     "doctrine/dbal": "^2.5",
-    "facade/ignition": "^2.0",
+    "facade/ignition": "^2.3.6",
     "fideloper/proxy": "^4.0",
-    "laravel/framework": "^7.0",
+    "guzzlehttp/guzzle": "^7.0.1",
+    "laravel/framework": "^8.0",
     "laravel/helpers": "^1.1",
+    "laravel/legacy-factories": "^1.0",
     "laravel/tinker": "^2.0",
-    "laravel/ui": "^2.0",
-    "nunomaduro/collision": "^4.1",
+    "laravel/ui": "^3.0",
+    "nunomaduro/collision": "^5.0",
     "yajra/laravel-datatables-oracle": "^9.8.0.0"
   },
   "require-dev": {
@@ -24,14 +26,19 @@
     "filp/whoops": "^2.1",
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
-    "phpunit/phpunit": "^8.5"
+    "phpunit/phpunit": "^9.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "autoload": {
-    "classmap": [
-      "database"
-    ],
     "psr-4": {
-      "LaraCourse\\": "app/"
+      "LaraCourse\\": "app/",
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
     }
   },
   "autoload-dev": {
@@ -57,9 +64,6 @@
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover"
     ]
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
   }
+
 }

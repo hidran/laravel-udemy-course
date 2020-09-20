@@ -4,7 +4,8 @@ use function foo\func;
 use Illuminate\Foundation\Auth\User;
 use LaraCourse\Models\Album;
 use LaraCourse\Models\Photo;
-
+use LaraCourse\Http\Controllers;
+use LaraCourse\Http\Controllers\AlbumsController;
 Route::get('allalbums', function(){
     $albums = Album::get();
     $albums->dump();
@@ -18,9 +19,11 @@ Route::group(
     ]
     ,
     function () {
-        Route::get('/', 'AlbumsController@index')
+        Route::get('/', 'LaraCourse\Http\Controllers\AlbumsController@index')
             ->name('albums');
-        
+
+        Route::get('/', [AlbumsController::class, 'index'])
+            ->name('albums');
          Route::get('/albums/create', 'AlbumsController@create')
              ->name('album.create');
         Route::get('/albums', 'AlbumsController@index')
@@ -62,7 +65,7 @@ Route::group(
                 ->get();
             return $usersnoalbum;
         });
-        
+
         Route::resource('photos', 'PhotosController');
         Route::resource('categories', 'AlbumCategoryController');
     }
@@ -79,14 +82,14 @@ Route::group(
     function () {
         Route::get('albums', 'GalleryController@index')
             ->name('gallery.albums');
-        
+
         Route::get('albums/category/{category}',
             'GalleryController@showAlbumsByCategory')
             ->name('gallery.album.category');
-        
+
         Route::get('/{category_id?}', 'GalleryController@index')
             ->name('gallery.albums');
-        
+
         Route::get('album/{album}/images', 'GalleryController@showAlbumImages')
             ->name('gallery.album.images');
     });
