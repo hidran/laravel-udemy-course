@@ -1,7 +1,8 @@
 <?php
 
+
 use Faker\Generator as Faker;
-use LaraCourse\Models\AlbumCategory; 
+use LaraCourse\Models\AlbumCategory;
 
 $factory->define(AlbumCategory::class, function (Faker $faker) {
     return [

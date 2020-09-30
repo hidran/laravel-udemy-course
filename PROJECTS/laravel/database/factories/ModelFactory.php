@@ -12,6 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use Carbon\Carbon;
 use LaraCourse\Models\Album;
 use LaraCourse\Models\User;
@@ -42,20 +43,20 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     ];
 });
 $factory->define(LaraCourse\Models\Album::class, function (Faker\Generator $faker) use($cats){
-    
+
 
     return [
         'album_name' => $faker->name,
         'description' => $faker->text(128),
         'user_id' => User::inRandomOrder()->first()->id,
         'album_thumb' => $faker->imageUrl(640, 480, $faker->randomElement($cats))
-       
+
     ];
 });
 $factory->define(LaraCourse\Models\Photo::class, function (Faker\Generator $faker) use($cats)  {
-  
-    
-   
+
+
+
     return [
         'album_id' => 1,
         'name' => $faker->text(64),

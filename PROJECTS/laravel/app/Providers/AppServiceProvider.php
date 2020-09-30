@@ -4,6 +4,7 @@ namespace LaraCourse\Providers;
 use DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
         /*DB::listen(function ($query) {
             \Log::info($query->sql.' '.$query->time);
             // $query->sql
