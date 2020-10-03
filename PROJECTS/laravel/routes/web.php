@@ -1,11 +1,19 @@
 <?php
-
 use function foo\func;
 use Illuminate\Foundation\Auth\User;
-use LaraCourse\Models\Album;
-use LaraCourse\Models\Photo;
+use LaraCourse\Models\{Album,Photo};
 use LaraCourse\Http\Controllers;
-use LaraCourse\Http\Controllers\AlbumsController;
+use LaraCourse\Http\Controllers\{
+    AlbumsController,
+    AlbumCategoryController,
+    GalleryController,
+    HomeController,
+    PageController,
+    PhotosControlle,
+    VideoController,
+    WelcomeController
+
+};
 Route::get('allalbums', function(){
     $albums = Album::get();
     $albums->dump();
@@ -14,37 +22,37 @@ Route::get('allalbums', function(){
 
 Route::group(
     [
-        'middleware' => ['auth','verified'],
+       // 'middleware' => ['auth','verified'],
         'prefix' => 'dashboard'
     ]
     ,
     function () {
-        Route::get('/', 'LaraCourse\Http\Controllers\AlbumsController@index')
+        Route::get('/', [AlbumsController::class,'index'])
             ->name('albums');
 
         Route::get('/', [AlbumsController::class, 'index'])
             ->name('albums');
-         Route::get('/albums/create', 'AlbumsController@create')
+         Route::get('/albums/create', [AlbumsController::class, 'create'])
              ->name('album.create');
-        Route::get('/albums', 'AlbumsController@index')
+        Route::get('/albums', [AlbumsController::class, 'index'])
             ->name('albums');
 
-        Route::get('/albums/{album}', 'AlbumsController@show')
+        Route::get('/albums/{album}',[AlbumsController::class, 'show'])
             ->where('id', '[0-9]+')
             ->middleware('can:view,album');
 
-        Route::get('/albums/{id}/edit', 'AlbumsController@edit')
+        Route::get('/albums/{id}/edit', [AlbumsController::class, 'edit'])
             ->where('id', '[0-9]+')
             ->name('album.edit');
-        Route::delete('/albums/{album}', 'AlbumsController@delete')
+        Route::delete('/albums/{album}', [AlbumsController::class, 'delete'])
             ->name('album.delete')
             ->where('album', '[0-9]+');
 
 //Route::post('/albums/{id}','AlbumsController@store');
-        Route::patch('/albums/{id}', 'AlbumsController@store')->name('album.patch');
-        Route::post('/albums', 'AlbumsController@save')->name('album.save');
+        Route::patch('/albums/{id}', [AlbumsController::class, 'store'])->name('album.patch');
+        Route::post('/albums', [AlbumsController::class, 'save'])->name('album.save');
 
-        Route::get('/albums/{album}/images', 'AlbumsController@getImages')
+        Route::get('/albums/{album}/images', [AlbumsController::class, 'getImages'])
             ->name('album.getimages')
             ->where('album', '[0-9]+');
 
@@ -66,7 +74,7 @@ Route::group(
             return $usersnoalbum;
         });
 
-        Route::resource('photos', 'PhotosController');
+        Route::resource('photos', PhotosController::class);
         Route::resource('categories', 'AlbumCategoryController');
     }
 );
@@ -80,24 +88,24 @@ Route::group(
     ]
     ,
     function () {
-        Route::get('albums', 'GalleryController@index')
+        Route::get('albums',[ GalleryController::class, 'index'])
             ->name('gallery.albums');
 
         Route::get('albums/category/{category}',
             'GalleryController@showAlbumsByCategory')
             ->name('gallery.album.category');
 
-        Route::get('/{category_id?}', 'GalleryController@index')
+        Route::get('/{category_id?}',[ GalleryController::class, 'index'] )
             ->name('gallery.albums');
 
-        Route::get('album/{album}/images', 'GalleryController@showAlbumImages')
+        Route::get('album/{album}/images', [ GalleryController::class, 'showAlbumImages'] )
             ->name('gallery.album.images');
     });
 // images
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'GalleryController@index');
+Route::get('/', [GalleryController::class, 'index']);
 Route::redirect('home', '/');
 Route::get('testMail',function (){
     \Mail::to('hidran@gmail.com')->send(new \LaraCourse\Mail\TestMd(Auth::user()));

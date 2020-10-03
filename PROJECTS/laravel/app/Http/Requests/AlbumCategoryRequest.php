@@ -14,6 +14,7 @@ class AlbumCategoryRequest extends FormRequest
      */
     public function authorize()
     {
+
         return Auth::check();
     }
 

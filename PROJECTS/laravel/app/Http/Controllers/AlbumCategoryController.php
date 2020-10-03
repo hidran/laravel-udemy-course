@@ -18,7 +18,7 @@ class AlbumCategoryController extends Controller
 {
     public function __construct()
     {
-       $this->authorizeResource(AlbumCategory::class,'category');
+       //$this->authorizeResource(AlbumCategory::class,'category');
     }
 
     /**
@@ -28,11 +28,11 @@ class AlbumCategoryController extends Controller
      */
     public function index()
     {
-      
+
         //$categories =  AlbumCategory::where('user_id',Auth::id())->withCount('albums')->latest()->paginate(5);
-        
+
       //  $categories = Auth::user()->albumCategories()->withCount('albums')->latest()->paginate(5);
-      
+
         $categories = AlbumCategory::getCategoriesByUserId(auth()->user())->paginate(5);
         $category = new AlbumCategory();
          return view('categories.index', compact('categories','category'));
@@ -46,7 +46,7 @@ class AlbumCategoryController extends Controller
     public function create()
     {
          $category = new AlbumCategory();
-       
+
         return view('categories.managecategory',compact('category'));
     }
 
@@ -85,9 +85,9 @@ class AlbumCategoryController extends Controller
         $cat =AlbumCategory::where('id',1)->has('user', function($q) use($category) {
             $q->where('user_id',$category->user_id);
         })->get();
-      
+
       //  $cat=  AlbumCategory::where('id',1)->has('user')->get();
-        
+
         var_dump( $cat);
         dd(\DB::getQueryLog());
        // dd( $category->has('user')->count());//::has('user')->get());

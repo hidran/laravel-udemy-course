@@ -3,7 +3,7 @@
   <component name="LaravelPluginSettings">
     <option name="pluginEnabled" value="true" />
     <option name="useAutoPopup" value="true" />
-    <option name="routerNamespace" value="" />
+    <option name="routerNamespace" value="LaraCourse\Http\Controllers" />
     <option name="mainLanguage" value="en" />
   </component>
 </project>
